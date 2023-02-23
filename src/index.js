@@ -1,3 +1,4 @@
+import switchItems from './dom/switchPlanItem';
 import './style.css';
 
-console.log('Hello');
+switchItems();

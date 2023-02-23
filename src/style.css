@@ -77,6 +77,9 @@ main .side-bar {
 .side-bar .wrapper:hover {
   background-color: var(--Secondary-bg-color);
 }
+.side-bar .wrapper.active {
+  background-color: var(--Secondary-bg-color);
+}
 
 .wrapper h2 {
   font-size: 16px;
@@ -94,6 +97,13 @@ main .side-bar {
 main .main-content {
   /* grid-column: 2 / 3; */
   background-color: var(--Secondary-bg-color);
+  display: grid;
+  place-items: center;
+}
+
+.main-content .container {
+  width: 80%;
+  height: 90%;
 }
 
 footer {

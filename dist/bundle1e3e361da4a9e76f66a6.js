@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,2BAA2B;EAC3B,qCAAqC;EACrC,qBAAqB;EACrB,+BAA+B;;EAE/B,0BAA0B;EAC1B,0BAA0B;AAC5B;;AAEA;;;EAGE,SAAS;EACT,sBAAsB;AACxB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,iCAAiC;EACjC,wBAAwB;AAC1B;;AAEA;;;;GAIG;;AAEH;EACE,mCAAmC;EACnC,0BAA0B;EAC1B,wCAAwC;EACxC,yCAAyC;EACzC,wBAAwB;AAC1B;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,sBAAsB;EACtB,0BAA0B;AAC5B;;AAEA;EACE;uBACqB;EACrB,yCAAyC;AAC3C;;AAEA;EACE,gBAAgB;EAChB,aAAa;EACb,6CAA6C;EAC7C,uBAAuB;EACvB,uCAAuC;AACzC;;AAEA;EACE,wBAAwB;EACxB,wCAAwC;AAC1C;;AAEA;EACE,aAAa;EACb,SAAS;EACT,YAAY;EACZ,wCAAwC;EACxC,uCAAuC;EACvC,mBAAmB;EACnB,eAAe;AACjB;;AAEA;EACE,2CAA2C;AAC7C;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA;EACE,wCAAwC;AAC1C;;AAEA;EACE,wBAAwB;EACxB,2CAA2C;AAC7C;;AAEA;EACE,qBAAqB;EACrB,wBAAwB;EACxB,kBAAkB;EAClB,wCAAwC;EACxC,yCAAyC;EACzC,mCAAmC;EACnC,0BAA0B;AAC5B","sourcesContent":[":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,2BAA2B;EAC3B,qCAAqC;EACrC,qBAAqB;EACrB,+BAA+B;;EAE/B,0BAA0B;EAC1B,0BAA0B;AAC5B;;AAEA;;;EAGE,SAAS;EACT,sBAAsB;AACxB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,iCAAiC;EACjC,wBAAwB;AAC1B;;AAEA;;;;GAIG;;AAEH;EACE,mCAAmC;EACnC,0BAA0B;EAC1B,wCAAwC;EACxC,yCAAyC;EACzC,wBAAwB;AAC1B;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,sBAAsB;EACtB,0BAA0B;AAC5B;;AAEA;EACE;uBACqB;EACrB,yCAAyC;AAC3C;;AAEA;EACE,gBAAgB;EAChB,aAAa;EACb,6CAA6C;EAC7C,uBAAuB;EACvB,uCAAuC;AACzC;;AAEA;EACE,wBAAwB;EACxB,wCAAwC;AAC1C;;AAEA;EACE,aAAa;EACb,SAAS;EACT,YAAY;EACZ,wCAAwC;EACxC,uCAAuC;EACvC,mBAAmB;EACnB,eAAe;AACjB;;AAEA;EACE,2CAA2C;AAC7C;AACA;EACE,2CAA2C;AAC7C;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA;EACE,wCAAwC;AAC1C;;AAEA;EACE,wBAAwB;EACxB,2CAA2C;EAC3C,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,UAAU;EACV,WAAW;AACb;;AAEA;EACE,qBAAqB;EACrB,wBAAwB;EACxB,kBAAkB;EAClB,wCAAwC;EACxC,yCAAyC;EACzC,mCAAmC;EACnC,0BAA0B;AAC5B","sourcesContent":[":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -505,6 +505,61 @@ function styleTagTransform(css, styleElement) {
 
 module.exports = styleTagTransform;
 
+/***/ }),
+
+/***/ "./src/dom/switchPlanItem.js":
+/*!***********************************!*\
+  !*** ./src/dom/switchPlanItem.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ switchItems)
+/* harmony export */ });
+/* eslint-disable consistent-return */
+/* eslint-disable no-param-reassign */
+const planItems = document.querySelectorAll('.plan-items .wrapper');
+const planItemsList = Array.from(planItems);
+const itemTitle = document.querySelector('.container #plan-item-title');
+
+function switchItemActiveState(items) {
+  items.forEach((item) => {
+    item.addEventListener('click', () => {
+      items.forEach((itm) => {
+        itm.classList.remove('active');
+      });
+      item.classList.add('active');
+    });
+  });
+}
+
+function getSelectedItemName(items) {
+  let selectedItemName;
+  items.forEach((item) => {
+    if (item.classList.contains('active')) {
+      selectedItemName = item.lastElementChild.textContent;
+    }
+  });
+  return selectedItemName;
+}
+
+function changeItemTitle(items, itmTitle) {
+  items.forEach((item) => {
+    item.addEventListener('click', () => {
+      const selectedName = getSelectedItemName(items);
+      if (selectedName == null) return;
+      itmTitle.textContent = selectedName;
+    });
+  });
+}
+
+function switchItems() {
+  switchItemActiveState(planItemsList);
+  changeItemTitle(planItemsList, itemTitle);
+}
+
+
 /***/ })
 
 /******/ 	});
@@ -587,13 +642,15 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
+/* harmony import */ var _dom_switchPlanItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom/switchPlanItem */ "./src/dom/switchPlanItem.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
 
 
-console.log('Hello');
+
+(0,_dom_switchPlanItem__WEBPACK_IMPORTED_MODULE_0__["default"])();
 
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle313d1641b8eec9ed78e5.js.map
+//# sourceMappingURL=bundle1e3e361da4a9e76f66a6.js.map
