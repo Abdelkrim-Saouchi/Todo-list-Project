@@ -22,6 +22,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   color: var(--Text-color);
+  position: relative;
 }
 
 /* .container {
@@ -114,4 +115,45 @@ footer {
   padding-inline: var(--right-left-padding);
   background-color: var(--Base-color);
   color: var(--Accent-color);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: var(--Base-color);
+  color: var(--Background-color);
+  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal input {
+  outline: 0;
+}
+
+.modal .btn-container {
+  align-self: center;
+  display: flex;
+  gap: 8px;
+}
+
+.modal .btn-container button {
+  /* align-self: center; */
+  color: var(--Background-color);
+  background-color: var(--Text-color);
+  outline: 0;
+  border: 0;
+  min-width: 50px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-container button:is(:hover, :focus) {
+  background-color: var(--Accent-color);
 }
