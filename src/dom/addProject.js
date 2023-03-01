@@ -1,4 +1,18 @@
+import addProjectToProjectsList from '../logic/logicController';
+
 const addProjectBtn = document.querySelector('#add-project');
+const projectsTasksSection = document.querySelector('.projects-tasks-section');
+
+function renderProject(title) {
+  const projectContainer = document.createElement('div');
+  projectContainer.classList.add('project-container');
+
+  const projectBar = document.createElement('div');
+  projectBar.classList.add('project-bar');
+
+  const projectTitle = document.createElement('h3');
+  projectTitle.textContent = title;
+}
 
 function createAddProjectModal() {
   const modalContainer = document.createElement('div');
@@ -19,7 +33,7 @@ function createAddProjectModal() {
   return modalContainer;
 }
 
-function dispalyProjectModal() {
+function displayProjectModal() {
   addProjectBtn.addEventListener('click', () => {
     let projectModal = document.querySelector('.modal');
     if (projectModal === null) {
@@ -27,6 +41,10 @@ function dispalyProjectModal() {
       document.querySelector('body').appendChild(projectModal);
     }
     projectModal.style.display = 'flex';
+    // eslint-disable-next-line no-use-before-define
+    cancelAddingProject();
+    // eslint-disable-next-line no-use-before-define
+    modalAddProject();
   });
 }
 
@@ -34,10 +52,22 @@ function changeProjectModalDisplay(display) {
   document.querySelector('.modal').style.display = display;
 }
 
-function canelAddingProject() {
+function cancelAddingProject() {
   const cancelBtn = document.querySelector('#cancel-btn');
-  console.log(cancelBtn);
-  cancelBtn.addEventListener('click', changeProjectModalDisplay('none'));
+  cancelBtn.addEventListener('click', () => {
+    changeProjectModalDisplay('none');
+  });
+}
+
+function modalAddProject() {
+  const addBtn = document.querySelector('#add-btn');
+  addBtn.addEventListener('click', () => {
+    const projectName = document.querySelector('.modal input').value;
+    if (projectName != null && projectName !== '') {
+      addProjectToProjectsList(projectName);
+      changeProjectModalDisplay('none');
+    }
+  });
 }
 
 // function getProjectModalData() {
@@ -45,6 +75,6 @@ function canelAddingProject() {
 // }
 
 export default function addProjectBtnFun() {
-  dispalyProjectModal();
-  canelAddingProject();
+  displayProjectModal();
+  // cancelAddingProject();
 }
