@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n  position: relative;\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n\n.modal {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 9999;\n  background-color: var(--Base-color);\n  color: var(--Background-color);\n  padding: 16px 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  border-radius: 12px;\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);\n}\n\n.modal input {\n  outline: 0;\n}\n\n.modal .btn-container {\n  align-self: center;\n  display: flex;\n  gap: 8px;\n}\n\n.modal .btn-container button {\n  /* align-self: center; */\n  color: var(--Background-color);\n  background-color: var(--Text-color);\n  outline: 0;\n  border: 0;\n  min-width: 50px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn-container button:is(:hover, :focus) {\n  background-color: var(--Accent-color);\n}\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,2BAA2B;EAC3B,qCAAqC;EACrC,qBAAqB;EACrB,+BAA+B;;EAE/B,0BAA0B;EAC1B,0BAA0B;AAC5B;;AAEA;;;EAGE,SAAS;EACT,sBAAsB;AACxB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,iCAAiC;EACjC,wBAAwB;EACxB,kBAAkB;AACpB;;AAEA;;;;GAIG;;AAEH;EACE,mCAAmC;EACnC,0BAA0B;EAC1B,wCAAwC;EACxC,yCAAyC;EACzC,wBAAwB;AAC1B;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,sBAAsB;EACtB,0BAA0B;AAC5B;;AAEA;EACE;uBACqB;EACrB,yCAAyC;AAC3C;;AAEA;EACE,gBAAgB;EAChB,aAAa;EACb,6CAA6C;EAC7C,uBAAuB;EACvB,uCAAuC;AACzC;;AAEA;EACE,wBAAwB;EACxB,wCAAwC;AAC1C;;AAEA;EACE,aAAa;EACb,SAAS;EACT,YAAY;EACZ,wCAAwC;EACxC,uCAAuC;EACvC,mBAAmB;EACnB,eAAe;AACjB;;AAEA;EACE,2CAA2C;AAC7C;AACA;EACE,2CAA2C;AAC7C;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA;EACE,wCAAwC;AAC1C;;AAEA;EACE,wBAAwB;EACxB,2CAA2C;EAC3C,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,UAAU;EACV,WAAW;AACb;;AAEA;EACE,qBAAqB;EACrB,wBAAwB;EACxB,kBAAkB;EAClB,wCAAwC;EACxC,yCAAyC;EACzC,mCAAmC;EACnC,0BAA0B;AAC5B;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,SAAS;EACT,gCAAgC;EAChC,aAAa;EACb,mCAAmC;EACnC,8BAA8B;EAC9B,kBAAkB;EAClB,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,mBAAmB;EACnB,2CAA2C;AAC7C;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,QAAQ;AACV;;AAEA;EACE,wBAAwB;EACxB,8BAA8B;EAC9B,mCAAmC;EACnC,UAAU;EACV,SAAS;EACT,eAAe;EACf,kBAAkB;EAClB,eAAe;AACjB;;AAEA;EACE,qCAAqC;AACvC","sourcesContent":[":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n  position: relative;\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n\n.modal {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 9999;\n  background-color: var(--Base-color);\n  color: var(--Background-color);\n  padding: 16px 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  border-radius: 12px;\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);\n}\n\n.modal input {\n  outline: 0;\n}\n\n.modal .btn-container {\n  align-self: center;\n  display: flex;\n  gap: 8px;\n}\n\n.modal .btn-container button {\n  /* align-self: center; */\n  color: var(--Background-color);\n  background-color: var(--Text-color);\n  outline: 0;\n  border: 0;\n  min-width: 50px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn-container button:is(:hover, :focus) {\n  background-color: var(--Accent-color);\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n  position: relative;\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n/* close icon */\n.wrapper .close-icon {\n  margin-left: auto;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n\n.modal {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 9999;\n  background-color: var(--Base-color);\n  color: var(--Background-color);\n  padding: 16px 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  border-radius: 12px;\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);\n}\n\n.modal input {\n  outline: 0;\n}\n\n.modal .btn-container {\n  align-self: center;\n  display: flex;\n  gap: 8px;\n}\n\n.modal .btn-container button {\n  /* align-self: center; */\n  color: var(--Background-color);\n  background-color: var(--Text-color);\n  outline: 0;\n  border: 0;\n  min-width: 50px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn-container button:is(:hover, :focus) {\n  background-color: var(--Accent-color);\n}\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,2BAA2B;EAC3B,qCAAqC;EACrC,qBAAqB;EACrB,+BAA+B;;EAE/B,0BAA0B;EAC1B,0BAA0B;AAC5B;;AAEA;;;EAGE,SAAS;EACT,sBAAsB;AACxB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,iCAAiC;EACjC,wBAAwB;EACxB,kBAAkB;AACpB;;AAEA;;;;GAIG;;AAEH;EACE,mCAAmC;EACnC,0BAA0B;EAC1B,wCAAwC;EACxC,yCAAyC;EACzC,wBAAwB;AAC1B;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,sBAAsB;EACtB,0BAA0B;AAC5B;;AAEA;EACE;uBACqB;EACrB,yCAAyC;AAC3C;;AAEA;EACE,gBAAgB;EAChB,aAAa;EACb,6CAA6C;EAC7C,uBAAuB;EACvB,uCAAuC;AACzC;;AAEA;EACE,wBAAwB;EACxB,wCAAwC;AAC1C;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,SAAS;EACT,YAAY;EACZ,wCAAwC;EACxC,uCAAuC;EACvC,mBAAmB;EACnB,eAAe;AACjB;;AAEA;EACE,2CAA2C;AAC7C;AACA;EACE,2CAA2C;AAC7C;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA,eAAe;AACf;EACE,iBAAiB;AACnB;;AAEA;EACE,wCAAwC;AAC1C;;AAEA;EACE,wBAAwB;EACxB,2CAA2C;EAC3C,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,UAAU;EACV,WAAW;AACb;;AAEA;EACE,qBAAqB;EACrB,wBAAwB;EACxB,kBAAkB;EAClB,wCAAwC;EACxC,yCAAyC;EACzC,mCAAmC;EACnC,0BAA0B;AAC5B;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,SAAS;EACT,gCAAgC;EAChC,aAAa;EACb,mCAAmC;EACnC,8BAA8B;EAC9B,kBAAkB;EAClB,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,mBAAmB;EACnB,2CAA2C;AAC7C;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,QAAQ;AACV;;AAEA;EACE,wBAAwB;EACxB,8BAA8B;EAC9B,mCAAmC;EACnC,UAAU;EACV,SAAS;EACT,eAAe;EACf,kBAAkB;EAClB,eAAe;AACjB;;AAEA;EACE,qCAAqC;AACvC","sourcesContent":[":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n  position: relative;\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n/* close icon */\n.wrapper .close-icon {\n  margin-left: auto;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n\n.modal {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 9999;\n  background-color: var(--Base-color);\n  color: var(--Background-color);\n  padding: 16px 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  border-radius: 12px;\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);\n}\n\n.modal input {\n  outline: 0;\n}\n\n.modal .btn-container {\n  align-self: center;\n  display: flex;\n  gap: 8px;\n}\n\n.modal .btn-container button {\n  /* align-self: center; */\n  color: var(--Background-color);\n  background-color: var(--Text-color);\n  outline: 0;\n  border: 0;\n  min-width: 50px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn-container button:is(:hover, :focus) {\n  background-color: var(--Accent-color);\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -517,7 +517,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ addProjectBtnFun)
 /* harmony export */ });
+/* harmony import */ var _logic_logicController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../logic/logicController */ "./src/logic/logicController.js");
+/* harmony import */ var _assets_project_img_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/project-img.svg */ "./src/assets/project-img.svg");
+/* harmony import */ var _assets_close_small_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/close-small-svgrepo-com.svg */ "./src/assets/close-small-svgrepo-com.svg");
+
+
+
+
+
+
 const addProjectBtn = document.querySelector('#add-project');
+// const projectsTasksSection = document.querySelector('.projects-tasks-section');
+const projectsDiv = document.querySelector('.projects-list');
+console.log(projectsDiv);
+
+function createProject(title) {
+  const projectContainer = document.createElement('div');
+  projectContainer.classList.add('wrapper');
+
+  const projectIcon = document.createElement('img');
+  projectIcon.src = _assets_project_img_svg__WEBPACK_IMPORTED_MODULE_1__;
+  const projectTitle = document.createElement('h3');
+  projectTitle.textContent = title;
+  const removeIcon = document.createElement('img');
+  removeIcon.src = _assets_close_small_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_2__;
+  removeIcon.classList.add('close-icon');
+  // removeIcon.id = `${title}-close-icon`;
+
+  projectContainer.append(projectIcon, projectTitle, removeIcon);
+  projectsDiv.appendChild(projectContainer);
+}
+
+function renderProjects() {
+  console.log('render');
+  projectsDiv.innerHTML = '';
+
+  const projects = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getProjectList)();
+  projects.forEach((project) => {
+    createProject(project.title);
+  });
+}
 
 function createAddProjectModal() {
   const modalContainer = document.createElement('div');
@@ -538,7 +577,7 @@ function createAddProjectModal() {
   return modalContainer;
 }
 
-function dispalyProjectModal() {
+function ControlProjectModal() {
   addProjectBtn.addEventListener('click', () => {
     let projectModal = document.querySelector('.modal');
     if (projectModal === null) {
@@ -546,6 +585,17 @@ function dispalyProjectModal() {
       document.querySelector('body').appendChild(projectModal);
     }
     projectModal.style.display = 'flex';
+    // eslint-disable-next-line no-use-before-define
+    cancelAddingProject();
+    // eslint-disable-next-line no-use-before-define
+
+    const addBtn = document.querySelector('#add-btn');
+    addBtn.addEventListener('click', () => {
+      modalAddProject();
+      changeProjectModalDisplay('none');
+      renderProjects();
+      deleteProject();
+    });
   });
 }
 
@@ -553,10 +603,36 @@ function changeProjectModalDisplay(display) {
   document.querySelector('.modal').style.display = display;
 }
 
-function canelAddingProject() {
+function cancelAddingProject() {
   const cancelBtn = document.querySelector('#cancel-btn');
-  console.log(cancelBtn);
-  cancelBtn.addEventListener('click', changeProjectModalDisplay('none'));
+  cancelBtn.addEventListener('click', () => {
+    changeProjectModalDisplay('none');
+  });
+}
+
+function modalAddProject() {
+  const projectName = document.querySelector('.modal input').value;
+  if (projectName != null && projectName !== '') {
+    (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__["default"])(projectName);
+  }
+}
+
+function deleteProject() {
+  const projects = document.querySelector('.projects-list .wrapper');
+  console.log(projects);
+  if (projects != null) {
+    console.log('entred delete');
+    const projectsList = Array.from(projects);
+    projectsList.forEach((project) => {
+      project.addEventListener('click', (e) => {
+        console.log('enetred delete 2');
+        if (e.target.className === 'close-icon') {
+          let title = project.querySelector('h3').textContent;
+          (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.deleteProjectFromProjectsList)(title);
+        }
+      });
+    });
+  }
 }
 
 // function getProjectModalData() {
@@ -564,8 +640,10 @@ function canelAddingProject() {
 // }
 
 function addProjectBtnFun() {
-  dispalyProjectModal();
-  canelAddingProject();
+  ControlProjectModal();
+  // cancelAddingProject();
+  // renderProjects();
+  deleteProject();
 }
 
 
@@ -624,6 +702,79 @@ function switchItems() {
 }
 
 
+/***/ }),
+
+/***/ "./src/logic/logicController.js":
+/*!**************************************!*\
+  !*** ./src/logic/logicController.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addProjectToProjectsList),
+/* harmony export */   "deleteProjectFromProjectsList": () => (/* binding */ deleteProjectFromProjectsList),
+/* harmony export */   "getProjectList": () => (/* binding */ getProjectList)
+/* harmony export */ });
+const projectsList = [];
+
+class ProjectFactory {
+  constructor(title) {
+    this.title = title;
+  }
+
+  addToProjectList(list) {
+    if (!list.some((project) => project.title === this.title)) {
+      list.push(this);
+    }
+  }
+
+  deleteFromProjectList(list) {
+    list.splice(list.indexOf(this), 1);
+  }
+}
+
+function addProjectToProjectsList(title) {
+  const project = new ProjectFactory(title);
+  console.log('project created');
+  project.addToProjectList(projectsList);
+  console.log(projectsList);
+}
+
+function deleteProjectFromProjectsList(title) {
+  projectsList.forEach((project) => {
+    if (project.title === title) {
+      project.deleteFromProjectList(projectsList);
+      console.log(projectsList);
+    }
+  });
+}
+
+function getProjectList() {
+  return projectsList;
+}
+
+
+/***/ }),
+
+/***/ "./src/assets/close-small-svgrepo-com.svg":
+/*!************************************************!*\
+  !*** ./src/assets/close-small-svgrepo-com.svg ***!
+  \************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "close-small-svgrepo-com.svg";
+
+/***/ }),
+
+/***/ "./src/assets/project-img.svg":
+/*!************************************!*\
+  !*** ./src/assets/project-img.svg ***!
+  \************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "project-img.svg";
+
 /***/ })
 
 /******/ 	});
@@ -677,6 +828,18 @@ function switchItems() {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -691,6 +854,26 @@ function switchItems() {
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
@@ -720,4 +903,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle31492e5be715253a2da3.js.map
+//# sourceMappingURL=bundle29526b9051c909fe80c2.js.map
