@@ -1,6 +1,6 @@
-import addProjectBtnFun from './dom/addProject';
+import displayController from './dom/displayController';
 import switchItems from './dom/switchPlanItem';
 import './style.css';
 
 switchItems();
-addProjectBtnFun();
+displayController();
