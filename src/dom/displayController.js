@@ -6,6 +6,12 @@ import projectImg from '../assets/project-img.svg';
 import removeImg from '../assets/close-small-svgrepo-com.svg';
 
 const projectsDiv = document.querySelector('.projects-list');
+// const sideBarOptions = Array.from(
+//   document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+// );
+// const fdg = document.querySelectorAll('[data-project-id]');
+
+const itemTitle = document.querySelector('.container #plan-item-title');
 
 function createProjectInDom(title, projectId) {
   const projectContainer = document.createElement('div');
@@ -89,8 +95,69 @@ function deleteProject(closeIcon) {
   deleteProjectFromProjectsList(projectId);
 }
 
+/* manage active state */
+function switchItemActiveState(items, target) {
+  items.forEach((item) => {
+    item.classList.remove('active');
+  });
+  target.classList.add('active');
+}
+
+function getSelectedItemName(items) {
+  let selectedItemName;
+  items.forEach((item) => {
+    if (
+      item.classList.contains('active') &&
+      !item.hasAttribute('data-project-id')
+    ) {
+      selectedItemName = item.lastElementChild.textContent;
+    } else if (
+      item.classList.contains('active') &&
+      item.hasAttribute('data-project-id')
+    ) {
+      selectedItemName = 'Projects';
+    }
+  });
+  return selectedItemName;
+}
+
+function changeItemTitle(items, itmTitle) {
+  const selectedName = getSelectedItemName(items);
+  if (selectedName == null) return;
+  // eslint-disable-next-line no-param-reassign
+  itmTitle.textContent = selectedName;
+}
+
 function globalEventsHandler() {
   document.addEventListener('click', (e) => {
+    if (e.target.matches('.plan-items .wrapper')) {
+      switchItemActiveState(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        e.target
+      );
+      changeItemTitle(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        itemTitle
+      );
+    }
+    if (e.target.matches('.plan-items .wrapper *')) {
+      switchItemActiveState(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        e.target.parentElement
+      );
+      changeItemTitle(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        itemTitle
+      );
+    }
     if (
       e.target.matches('#add-project') ||
       e.target.matches('#add-project *')
@@ -108,6 +175,34 @@ function globalEventsHandler() {
     if (e.target.matches('.close-icon')) {
       deleteProject(e.target);
       renderProjects();
+    }
+    if (e.target.matches('[data-project-id]')) {
+      switchItemActiveState(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        e.target
+      );
+      changeItemTitle(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        itemTitle
+      );
+    }
+    if (e.target.matches('[data-project-id] *')) {
+      switchItemActiveState(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        e.target.parentElement
+      );
+      changeItemTitle(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        itemTitle
+      );
     }
   });
 }

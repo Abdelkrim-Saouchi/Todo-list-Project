@@ -525,6 +525,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const projectsDiv = document.querySelector('.projects-list');
+// const sideBarOptions = Array.from(
+//   document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+// );
+// const fdg = document.querySelectorAll('[data-project-id]');
+
+const itemTitle = document.querySelector('.container #plan-item-title');
 
 function createProjectInDom(title, projectId) {
   const projectContainer = document.createElement('div');
@@ -608,8 +614,69 @@ function deleteProject(closeIcon) {
   (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.deleteProjectFromProjectsList)(projectId);
 }
 
+/* manage active state */
+function switchItemActiveState(items, target) {
+  items.forEach((item) => {
+    item.classList.remove('active');
+  });
+  target.classList.add('active');
+}
+
+function getSelectedItemName(items) {
+  let selectedItemName;
+  items.forEach((item) => {
+    if (
+      item.classList.contains('active') &&
+      !item.hasAttribute('data-project-id')
+    ) {
+      selectedItemName = item.lastElementChild.textContent;
+    } else if (
+      item.classList.contains('active') &&
+      item.hasAttribute('data-project-id')
+    ) {
+      selectedItemName = 'Projects';
+    }
+  });
+  return selectedItemName;
+}
+
+function changeItemTitle(items, itmTitle) {
+  const selectedName = getSelectedItemName(items);
+  if (selectedName == null) return;
+  // eslint-disable-next-line no-param-reassign
+  itmTitle.textContent = selectedName;
+}
+
 function globalEventsHandler() {
   document.addEventListener('click', (e) => {
+    if (e.target.matches('.plan-items .wrapper')) {
+      switchItemActiveState(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        e.target
+      );
+      changeItemTitle(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        itemTitle
+      );
+    }
+    if (e.target.matches('.plan-items .wrapper *')) {
+      switchItemActiveState(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        e.target.parentElement
+      );
+      changeItemTitle(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        itemTitle
+      );
+    }
     if (
       e.target.matches('#add-project') ||
       e.target.matches('#add-project *')
@@ -628,66 +695,39 @@ function globalEventsHandler() {
       deleteProject(e.target);
       renderProjects();
     }
+    if (e.target.matches('[data-project-id]')) {
+      switchItemActiveState(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        e.target
+      );
+      changeItemTitle(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        itemTitle
+      );
+    }
+    if (e.target.matches('[data-project-id] *')) {
+      switchItemActiveState(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        e.target.parentElement
+      );
+      changeItemTitle(
+        Array.from(
+          document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
+        ),
+        itemTitle
+      );
+    }
   });
 }
 
 function displayController() {
   globalEventsHandler();
-}
-
-
-/***/ }),
-
-/***/ "./src/dom/switchPlanItem.js":
-/*!***********************************!*\
-  !*** ./src/dom/switchPlanItem.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ switchItems)
-/* harmony export */ });
-/* eslint-disable consistent-return */
-/* eslint-disable no-param-reassign */
-const planItems = document.querySelectorAll('.plan-items .wrapper');
-const planItemsList = Array.from(planItems);
-const itemTitle = document.querySelector('.container #plan-item-title');
-
-function switchItemActiveState(items) {
-  items.forEach((item) => {
-    item.addEventListener('click', () => {
-      items.forEach((itm) => {
-        itm.classList.remove('active');
-      });
-      item.classList.add('active');
-    });
-  });
-}
-
-function getSelectedItemName(items) {
-  let selectedItemName;
-  items.forEach((item) => {
-    if (item.classList.contains('active')) {
-      selectedItemName = item.lastElementChild.textContent;
-    }
-  });
-  return selectedItemName;
-}
-
-function changeItemTitle(items, itmTitle) {
-  items.forEach((item) => {
-    item.addEventListener('click', () => {
-      const selectedName = getSelectedItemName(items);
-      if (selectedName == null) return;
-      itmTitle.textContent = selectedName;
-    });
-  });
-}
-
-function switchItems() {
-  switchItemActiveState(planItemsList);
-  changeItemTitle(planItemsList, itemTitle);
 }
 
 
@@ -880,17 +920,16 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dom_displayController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom/displayController */ "./src/dom/displayController.js");
-/* harmony import */ var _dom_switchPlanItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom/switchPlanItem */ "./src/dom/switchPlanItem.js");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
+
+// import switchItems from './dom/switchPlanItem';
 
 
-
-
-(0,_dom_switchPlanItem__WEBPACK_IMPORTED_MODULE_1__["default"])();
+// switchItems();
 (0,_dom_displayController__WEBPACK_IMPORTED_MODULE_0__["default"])();
 
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlebe16b0a4264811f3075c.js.map
+//# sourceMappingURL=bundle55c11283dbf02ceed77b.js.map
