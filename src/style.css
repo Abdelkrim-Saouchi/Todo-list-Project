@@ -113,6 +113,25 @@ main .main-content {
   height: 90%;
 }
 
+.container .add-task {
+  margin-block: 16px;
+  display: flex;
+  gap: 10px;
+  max-width: fit-content;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.container .add-task:is(:hover, :focus) {
+  background-color: var(--Background-color);
+}
+
+.container .add-task img {
+  width: 20px;
+  height: 20px;
+}
+
 footer {
   /* grid-row: 3 / 4; */
   /* grid-column: 1 / 3; */
