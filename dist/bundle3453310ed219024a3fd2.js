@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n  position: relative;\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n/* close icon */\n.wrapper .close-icon {\n  margin-left: auto;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\n.container .add-task {\n  margin-block: 16px;\n  display: flex;\n  gap: 10px;\n  max-width: fit-content;\n  padding: 10px;\n  border-radius: 12px;\n  cursor: pointer;\n}\n\n.container .add-task:is(:hover, :focus) {\n  background-color: var(--Background-color);\n}\n\n.container .add-task img {\n  width: 20px;\n  height: 20px;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n\n.modal {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 9999;\n  background-color: var(--Base-color);\n  color: var(--Background-color);\n  padding: 16px 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  border-radius: 12px;\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);\n}\n\n.modal input {\n  outline: 0;\n}\n\n.modal .btn-container {\n  align-self: center;\n  display: flex;\n  gap: 8px;\n}\n\n.modal .btn-container button {\n  /* align-self: center; */\n  color: var(--Background-color);\n  background-color: var(--Text-color);\n  outline: 0;\n  border: 0;\n  min-width: 50px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn-container button:is(:hover, :focus) {\n  background-color: var(--Accent-color);\n}\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,2BAA2B;EAC3B,qCAAqC;EACrC,qBAAqB;EACrB,+BAA+B;;EAE/B,0BAA0B;EAC1B,0BAA0B;AAC5B;;AAEA;;;EAGE,SAAS;EACT,sBAAsB;AACxB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,iCAAiC;EACjC,wBAAwB;EACxB,kBAAkB;AACpB;;AAEA;;;;GAIG;;AAEH;EACE,mCAAmC;EACnC,0BAA0B;EAC1B,wCAAwC;EACxC,yCAAyC;EACzC,wBAAwB;AAC1B;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,sBAAsB;EACtB,0BAA0B;AAC5B;;AAEA;EACE;uBACqB;EACrB,yCAAyC;AAC3C;;AAEA;EACE,gBAAgB;EAChB,aAAa;EACb,6CAA6C;EAC7C,uBAAuB;EACvB,uCAAuC;AACzC;;AAEA;EACE,wBAAwB;EACxB,wCAAwC;AAC1C;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,SAAS;EACT,YAAY;EACZ,wCAAwC;EACxC,uCAAuC;EACvC,mBAAmB;EACnB,eAAe;AACjB;;AAEA;EACE,2CAA2C;AAC7C;AACA;EACE,2CAA2C;AAC7C;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA,eAAe;AACf;EACE,iBAAiB;AACnB;;AAEA;EACE,wCAAwC;AAC1C;;AAEA;EACE,wBAAwB;EACxB,2CAA2C;EAC3C,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,UAAU;EACV,WAAW;AACb;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,SAAS;EACT,sBAAsB;EACtB,aAAa;EACb,mBAAmB;EACnB,eAAe;AACjB;;AAEA;EACE,yCAAyC;AAC3C;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA;EACE,qBAAqB;EACrB,wBAAwB;EACxB,kBAAkB;EAClB,wCAAwC;EACxC,yCAAyC;EACzC,mCAAmC;EACnC,0BAA0B;AAC5B;;AAEA;EACE,kBAAkB;EAClB,QAAQ;EACR,SAAS;EACT,gCAAgC;EAChC,aAAa;EACb,mCAAmC;EACnC,8BAA8B;EAC9B,kBAAkB;EAClB,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,mBAAmB;EACnB,2CAA2C;AAC7C;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,QAAQ;AACV;;AAEA;EACE,wBAAwB;EACxB,8BAA8B;EAC9B,mCAAmC;EACnC,UAAU;EACV,SAAS;EACT,eAAe;EACf,kBAAkB;EAClB,eAAe;AACjB;;AAEA;EACE,qCAAqC;AACvC","sourcesContent":[":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n  position: relative;\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n/* close icon */\n.wrapper .close-icon {\n  margin-left: auto;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\n.container .add-task {\n  margin-block: 16px;\n  display: flex;\n  gap: 10px;\n  max-width: fit-content;\n  padding: 10px;\n  border-radius: 12px;\n  cursor: pointer;\n}\n\n.container .add-task:is(:hover, :focus) {\n  background-color: var(--Background-color);\n}\n\n.container .add-task img {\n  width: 20px;\n  height: 20px;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n\n.modal {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 9999;\n  background-color: var(--Base-color);\n  color: var(--Background-color);\n  padding: 16px 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  border-radius: 12px;\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);\n}\n\n.modal input {\n  outline: 0;\n}\n\n.modal .btn-container {\n  align-self: center;\n  display: flex;\n  gap: 8px;\n}\n\n.modal .btn-container button {\n  /* align-self: center; */\n  color: var(--Background-color);\n  background-color: var(--Text-color);\n  outline: 0;\n  border: 0;\n  min-width: 50px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn-container button:is(:hover, :focus) {\n  background-color: var(--Accent-color);\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n  position: relative;\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n/* close icon */\n.wrapper .close-icon {\n  margin-left: auto;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\n.container .add-task {\n  margin-block: 16px;\n  display: flex;\n  gap: 10px;\n  max-width: fit-content;\n  padding: 10px;\n  border-radius: 12px;\n  cursor: pointer;\n}\n\n.container .add-task:is(:hover, :focus) {\n  background-color: var(--Background-color);\n}\n\n.container .add-task img {\n  width: 20px;\n  height: 20px;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n\n.modal,\n.task-modal {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 9999;\n  background-color: var(--Base-color);\n  color: var(--Background-color);\n  padding: 16px 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  border-radius: 12px;\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);\n}\n\n.modal input,\n.task-modal input {\n  outline: 0;\n}\n\n.modal .btn-container,\n.task-modal .btn-container {\n  align-self: center;\n  display: flex;\n  gap: 8px;\n}\n\n.modal .btn-container button,\n.task-modal .btn-container button {\n  /* align-self: center; */\n  color: var(--Background-color);\n  background-color: var(--Text-color);\n  outline: 0;\n  border: 0;\n  min-width: 50px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn-container button:is(:hover, :focus) {\n  background-color: var(--Accent-color);\n}\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,2BAA2B;EAC3B,qCAAqC;EACrC,qBAAqB;EACrB,+BAA+B;;EAE/B,0BAA0B;EAC1B,0BAA0B;AAC5B;;AAEA;;;EAGE,SAAS;EACT,sBAAsB;AACxB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,iCAAiC;EACjC,wBAAwB;EACxB,kBAAkB;AACpB;;AAEA;;;;GAIG;;AAEH;EACE,mCAAmC;EACnC,0BAA0B;EAC1B,wCAAwC;EACxC,yCAAyC;EACzC,wBAAwB;AAC1B;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,sBAAsB;EACtB,0BAA0B;AAC5B;;AAEA;EACE;uBACqB;EACrB,yCAAyC;AAC3C;;AAEA;EACE,gBAAgB;EAChB,aAAa;EACb,6CAA6C;EAC7C,uBAAuB;EACvB,uCAAuC;AACzC;;AAEA;EACE,wBAAwB;EACxB,wCAAwC;AAC1C;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,SAAS;EACT,YAAY;EACZ,wCAAwC;EACxC,uCAAuC;EACvC,mBAAmB;EACnB,eAAe;AACjB;;AAEA;EACE,2CAA2C;AAC7C;AACA;EACE,2CAA2C;AAC7C;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA,eAAe;AACf;EACE,iBAAiB;AACnB;;AAEA;EACE,wCAAwC;AAC1C;;AAEA;EACE,wBAAwB;EACxB,2CAA2C;EAC3C,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,UAAU;EACV,WAAW;AACb;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,SAAS;EACT,sBAAsB;EACtB,aAAa;EACb,mBAAmB;EACnB,eAAe;AACjB;;AAEA;EACE,yCAAyC;AAC3C;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA;EACE,qBAAqB;EACrB,wBAAwB;EACxB,kBAAkB;EAClB,wCAAwC;EACxC,yCAAyC;EACzC,mCAAmC;EACnC,0BAA0B;AAC5B;;AAEA;;EAEE,kBAAkB;EAClB,QAAQ;EACR,SAAS;EACT,gCAAgC;EAChC,aAAa;EACb,mCAAmC;EACnC,8BAA8B;EAC9B,kBAAkB;EAClB,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,mBAAmB;EACnB,2CAA2C;AAC7C;;AAEA;;EAEE,UAAU;AACZ;;AAEA;;EAEE,kBAAkB;EAClB,aAAa;EACb,QAAQ;AACV;;AAEA;;EAEE,wBAAwB;EACxB,8BAA8B;EAC9B,mCAAmC;EACnC,UAAU;EACV,SAAS;EACT,eAAe;EACf,kBAAkB;EAClB,eAAe;AACjB;;AAEA;EACE,qCAAqC;AACvC","sourcesContent":[":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n  position: relative;\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n/* close icon */\n.wrapper .close-icon {\n  margin-left: auto;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\n.container .add-task {\n  margin-block: 16px;\n  display: flex;\n  gap: 10px;\n  max-width: fit-content;\n  padding: 10px;\n  border-radius: 12px;\n  cursor: pointer;\n}\n\n.container .add-task:is(:hover, :focus) {\n  background-color: var(--Background-color);\n}\n\n.container .add-task img {\n  width: 20px;\n  height: 20px;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n\n.modal,\n.task-modal {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 9999;\n  background-color: var(--Base-color);\n  color: var(--Background-color);\n  padding: 16px 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  border-radius: 12px;\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);\n}\n\n.modal input,\n.task-modal input {\n  outline: 0;\n}\n\n.modal .btn-container,\n.task-modal .btn-container {\n  align-self: center;\n  display: flex;\n  gap: 8px;\n}\n\n.modal .btn-container button,\n.task-modal .btn-container button {\n  /* align-self: center; */\n  color: var(--Background-color);\n  background-color: var(--Text-color);\n  outline: 0;\n  border: 0;\n  min-width: 50px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn-container button:is(:hover, :focus) {\n  background-color: var(--Accent-color);\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -555,12 +555,12 @@ function renderProjects() {
   });
 }
 
-function createAddProjectModal() {
+function createModal(clss, labelText, addBtnId, cancelBtnId) {
   const modalContainer = document.createElement('div');
-  modalContainer.classList.add('modal');
+  modalContainer.classList.add(clss);
 
   const modalLabel = document.createElement('label');
-  modalLabel.textContent = 'Write Project name';
+  modalLabel.textContent = labelText;
 
   const modalInput = document.createElement('input');
 
@@ -569,11 +569,11 @@ function createAddProjectModal() {
 
   const addBtn = document.createElement('button');
   addBtn.textContent = 'Add';
-  addBtn.id = 'add-btn';
+  addBtn.id = addBtnId;
 
   const cancelBtn = document.createElement('button');
   cancelBtn.textContent = 'Cancel';
-  cancelBtn.id = 'cancel-btn';
+  cancelBtn.id = cancelBtnId;
 
   btnContainer.append(addBtn, cancelBtn);
   modalContainer.append(modalLabel, modalInput, btnContainer);
@@ -581,21 +581,42 @@ function createAddProjectModal() {
   return modalContainer;
 }
 
-function displayProjectModal() {
-  let projectModal = document.querySelector('.modal');
-  if (projectModal === null) {
-    projectModal = createAddProjectModal();
-    document.querySelector('body').appendChild(projectModal);
+function createAddProjectModal() {
+  return createModal('modal', 'Write Project name', 'add-btn', 'cancel-btn');
+}
+
+function createAddTaskModal() {
+  return createModal(
+    'task-modal',
+    'Enter Task name',
+    'add-task-btn',
+    'cancel-task-btn'
+  );
+}
+
+function displayModal(selector, createFunction) {
+  let modal = document.querySelector(selector);
+  if (modal === null) {
+    modal = createFunction();
+    document.querySelector('body').appendChild(modal);
   }
-  projectModal.style.display = 'flex';
+  modal.style.display = 'flex';
 }
 
-function changeProjectModalDisplay(display) {
-  document.querySelector('.modal').style.display = display;
+function displayProjectModal() {
+  displayModal('.modal', createAddProjectModal);
 }
 
-function cancelAddingProject() {
-  changeProjectModalDisplay('none');
+function displayTaskModal() {
+  displayModal('.task-modal', createAddTaskModal);
+}
+
+function changeModalDisplay(selector, display) {
+  document.querySelector(selector).style.display = display;
+}
+
+function cancelAdding(selector) {
+  changeModalDisplay(selector, 'none');
 }
 
 function addProject() {
@@ -646,7 +667,6 @@ function changeItemTitle(items, itmTitle) {
 }
 
 function switchSidebarOptions(selector, target) {
-  console.log('entred secretly');
   switchItemActiveState(
     Array.from(document.querySelectorAll(selector, target)),
     target
@@ -662,16 +682,11 @@ function resetActiveSate() {
     document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
   );
   const projects = Array.from(document.querySelectorAll('[data-project-id]'));
-  console.log('entred');
-  console.log('sidebaroptions: ', sideBarOptions);
-  console.log('projects: ', projects);
 
   if (projects.length === 0) {
-    console.log('entred 0');
     const upperSideBarOptions = Array.from(
       document.querySelectorAll('.plan-items .wrapper')
     );
-    console.log('first element:', upperSideBarOptions[0]);
     switchItemActiveState(upperSideBarOptions, upperSideBarOptions[0]);
     changeItemTitle(upperSideBarOptions, itemTitle);
   } else {
@@ -682,6 +697,7 @@ function resetActiveSate() {
 
 function globalEventsHandler() {
   document.addEventListener('click', (e) => {
+    // Manage active states and switches of inbox, today and this week
     if (e.target.matches('.plan-items .wrapper')) {
       switchSidebarOptions('.plan-items .wrapper, [data-project-id]', e.target);
     }
@@ -692,35 +708,49 @@ function globalEventsHandler() {
         e.target.parentElement
       );
     }
+    // Handle add projects button events
     if (
       e.target.matches('#add-project') ||
       e.target.matches('#add-project *')
     ) {
       displayProjectModal();
     }
+    // Handle cancel button events in AddProject modal
     if (e.target.matches('#cancel-btn')) {
-      cancelAddingProject();
+      cancelAdding('.modal');
     }
+    // Handle add button events in AddProject Modal
     if (e.target.matches('#add-btn')) {
       addProject();
-      changeProjectModalDisplay('none');
+      changeModalDisplay('.modal', 'none');
       renderProjects();
       resetActiveSate();
     }
+    // Handle close icon events in project's div
     if (e.target.matches('.close-icon')) {
       deleteProject(e.target);
       renderProjects();
       resetActiveSate();
     }
+    // Manage active states changes of projects
     if (e.target.matches('[data-project-id]')) {
       switchSidebarOptions('.plan-items .wrapper, [data-project-id]', e.target);
     }
     if (e.target.matches('[data-project-id] .project-icon, h3')) {
-      // added to make sure event will start if child element was pressed
+      // added to make sure event will start if child element was pressed,
+      // I avoided wild selector * to prevent conflict between switchSidebarOptions() and resetActiveState()
       switchSidebarOptions(
         '.plan-items .wrapper, [data-project-id]',
         e.target.parentElement
       );
+    }
+    // Handle Add task button's events
+    if (e.target.matches('.add-task, .add-task *')) {
+      displayTaskModal();
+    }
+    // Handle cancel adding task event
+    if (e.target.matches('#cancel-task-btn')) {
+      cancelAdding('.task-modal');
     }
   });
 }
@@ -744,12 +774,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "deleteProjectFromProjectsList": () => (/* binding */ deleteProjectFromProjectsList),
 /* harmony export */   "getProjectList": () => (/* binding */ getProjectList)
 /* harmony export */ });
+/* eslint-disable max-classes-per-file */
 const projectsList = [];
+
+class TodosFactory {
+  constructor(title, todoId) {
+    this.title = title;
+    this.todoId = todoId;
+  }
+}
 
 class ProjectFactory {
   constructor(title, id) {
     this.title = title;
     this.id = id;
+    this.tasks = [];
+  }
+
+  addTodoTask(title, todoId) {
+    const todo = new TodosFactory(title, todoId);
+    this.tasks.push(todo);
   }
 
   // addToProjectList(list) {
@@ -931,4 +975,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle499e5686e75ad3496498.js.map
+//# sourceMappingURL=bundle3453310ed219024a3fd2.js.map

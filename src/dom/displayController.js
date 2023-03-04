@@ -36,12 +36,12 @@ function renderProjects() {
   });
 }
 
-function createAddProjectModal() {
+function createModal(clss, labelText, addBtnId, cancelBtnId) {
   const modalContainer = document.createElement('div');
-  modalContainer.classList.add('modal');
+  modalContainer.classList.add(clss);
 
   const modalLabel = document.createElement('label');
-  modalLabel.textContent = 'Write Project name';
+  modalLabel.textContent = labelText;
 
   const modalInput = document.createElement('input');
 
@@ -50,11 +50,11 @@ function createAddProjectModal() {
 
   const addBtn = document.createElement('button');
   addBtn.textContent = 'Add';
-  addBtn.id = 'add-btn';
+  addBtn.id = addBtnId;
 
   const cancelBtn = document.createElement('button');
   cancelBtn.textContent = 'Cancel';
-  cancelBtn.id = 'cancel-btn';
+  cancelBtn.id = cancelBtnId;
 
   btnContainer.append(addBtn, cancelBtn);
   modalContainer.append(modalLabel, modalInput, btnContainer);
@@ -62,21 +62,42 @@ function createAddProjectModal() {
   return modalContainer;
 }
 
-function displayProjectModal() {
-  let projectModal = document.querySelector('.modal');
-  if (projectModal === null) {
-    projectModal = createAddProjectModal();
-    document.querySelector('body').appendChild(projectModal);
+function createAddProjectModal() {
+  return createModal('modal', 'Write Project name', 'add-btn', 'cancel-btn');
+}
+
+function createAddTaskModal() {
+  return createModal(
+    'task-modal',
+    'Enter Task name',
+    'add-task-btn',
+    'cancel-task-btn'
+  );
+}
+
+function displayModal(selector, createFunction) {
+  let modal = document.querySelector(selector);
+  if (modal === null) {
+    modal = createFunction();
+    document.querySelector('body').appendChild(modal);
   }
-  projectModal.style.display = 'flex';
+  modal.style.display = 'flex';
 }
 
-function changeProjectModalDisplay(display) {
-  document.querySelector('.modal').style.display = display;
+function displayProjectModal() {
+  displayModal('.modal', createAddProjectModal);
 }
 
-function cancelAddingProject() {
-  changeProjectModalDisplay('none');
+function displayTaskModal() {
+  displayModal('.task-modal', createAddTaskModal);
+}
+
+function changeModalDisplay(selector, display) {
+  document.querySelector(selector).style.display = display;
+}
+
+function cancelAdding(selector) {
+  changeModalDisplay(selector, 'none');
 }
 
 function addProject() {
@@ -127,7 +148,6 @@ function changeItemTitle(items, itmTitle) {
 }
 
 function switchSidebarOptions(selector, target) {
-  console.log('entred secretly');
   switchItemActiveState(
     Array.from(document.querySelectorAll(selector, target)),
     target
@@ -143,16 +163,11 @@ function resetActiveSate() {
     document.querySelectorAll('.plan-items .wrapper, [data-project-id]')
   );
   const projects = Array.from(document.querySelectorAll('[data-project-id]'));
-  console.log('entred');
-  console.log('sidebaroptions: ', sideBarOptions);
-  console.log('projects: ', projects);
 
   if (projects.length === 0) {
-    console.log('entred 0');
     const upperSideBarOptions = Array.from(
       document.querySelectorAll('.plan-items .wrapper')
     );
-    console.log('first element:', upperSideBarOptions[0]);
     switchItemActiveState(upperSideBarOptions, upperSideBarOptions[0]);
     changeItemTitle(upperSideBarOptions, itemTitle);
   } else {
@@ -163,6 +178,7 @@ function resetActiveSate() {
 
 function globalEventsHandler() {
   document.addEventListener('click', (e) => {
+    // Manage active states and switches of inbox, today and this week
     if (e.target.matches('.plan-items .wrapper')) {
       switchSidebarOptions('.plan-items .wrapper, [data-project-id]', e.target);
     }
@@ -173,35 +189,49 @@ function globalEventsHandler() {
         e.target.parentElement
       );
     }
+    // Handle add projects button events
     if (
       e.target.matches('#add-project') ||
       e.target.matches('#add-project *')
     ) {
       displayProjectModal();
     }
+    // Handle cancel button events in AddProject modal
     if (e.target.matches('#cancel-btn')) {
-      cancelAddingProject();
+      cancelAdding('.modal');
     }
+    // Handle add button events in AddProject Modal
     if (e.target.matches('#add-btn')) {
       addProject();
-      changeProjectModalDisplay('none');
+      changeModalDisplay('.modal', 'none');
       renderProjects();
       resetActiveSate();
     }
+    // Handle close icon events in project's div
     if (e.target.matches('.close-icon')) {
       deleteProject(e.target);
       renderProjects();
       resetActiveSate();
     }
+    // Manage active states changes of projects
     if (e.target.matches('[data-project-id]')) {
       switchSidebarOptions('.plan-items .wrapper, [data-project-id]', e.target);
     }
     if (e.target.matches('[data-project-id] .project-icon, h3')) {
-      // added to make sure event will start if child element was pressed
+      // added to make sure event will start if child element was pressed,
+      // I avoided wild selector * to prevent conflict between switchSidebarOptions() and resetActiveState()
       switchSidebarOptions(
         '.plan-items .wrapper, [data-project-id]',
         e.target.parentElement
       );
+    }
+    // Handle Add task button's events
+    if (e.target.matches('.add-task, .add-task *')) {
+      displayTaskModal();
+    }
+    // Handle cancel adding task event
+    if (e.target.matches('#cancel-task-btn')) {
+      cancelAdding('.task-modal');
     }
   });
 }

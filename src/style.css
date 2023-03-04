@@ -142,7 +142,8 @@ footer {
   color: var(--Accent-color);
 }
 
-.modal {
+.modal,
+.task-modal {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -158,17 +159,20 @@ footer {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
-.modal input {
+.modal input,
+.task-modal input {
   outline: 0;
 }
 
-.modal .btn-container {
+.modal .btn-container,
+.task-modal .btn-container {
   align-self: center;
   display: flex;
   gap: 8px;
 }
 
-.modal .btn-container button {
+.modal .btn-container button,
+.task-modal .btn-container button {
   /* align-self: center; */
   color: var(--Background-color);
   background-color: var(--Text-color);

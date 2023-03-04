@@ -1,9 +1,23 @@
+/* eslint-disable max-classes-per-file */
 const projectsList = [];
+
+class TodosFactory {
+  constructor(title, todoId) {
+    this.title = title;
+    this.todoId = todoId;
+  }
+}
 
 class ProjectFactory {
   constructor(title, id) {
     this.title = title;
     this.id = id;
+    this.tasks = [];
+  }
+
+  addTodoTask(title, todoId) {
+    const todo = new TodosFactory(title, todoId);
+    this.tasks.push(todo);
   }
 
   // addToProjectList(list) {
