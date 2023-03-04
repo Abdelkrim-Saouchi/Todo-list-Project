@@ -1,4 +1,5 @@
 import addProjectToProjectsList, {
+  addTodoTask,
   deleteProjectFromProjectsList,
   getProjectList,
 } from '../logic/logicController';
@@ -109,14 +110,12 @@ function addProject() {
 
 function deleteProject(closeIcon) {
   const { projectId } = closeIcon.parentElement.dataset;
-  console.log('projectId:', projectId);
   deleteProjectFromProjectsList(projectId);
 }
 
 /* manage active state */
 function switchItemActiveState(items, target) {
   items.forEach((item) => {
-    console.log('entred loop');
     item.classList.remove('active');
   });
   target.classList.add('active');
@@ -176,6 +175,20 @@ function resetActiveSate() {
   }
 }
 
+function addTask() {
+  const inputValue = document.querySelector('.task-modal input').value;
+  const projectName = document.querySelector('#plan-item-title').textContent;
+  const projectsList = getProjectList();
+
+  if (inputValue == null || inputValue === '') return;
+  projectsList.forEach((project) => {
+    if (project.title === projectName) {
+      addTodoTask(project, inputValue);
+      console.log('tasks:', project.tasks);
+    }
+  });
+}
+
 function globalEventsHandler() {
   document.addEventListener('click', (e) => {
     // Manage active states and switches of inbox, today and this week
@@ -232,6 +245,12 @@ function globalEventsHandler() {
     // Handle cancel adding task event
     if (e.target.matches('#cancel-task-btn')) {
       cancelAdding('.task-modal');
+    }
+    // Handle add task events
+    if (e.target.matches('#add-task-btn')) {
+      console.log('entred event');
+      addTask();
+      changeModalDisplay('.task-modal', 'none');
     }
   });
 }

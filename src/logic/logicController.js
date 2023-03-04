@@ -50,3 +50,7 @@ export function deleteProjectFromProjectsList(projectId) {
 export function getProjectList() {
   return projectsList;
 }
+
+export function addTodoTask(project, title) {
+  project.addTodoTask(title, Date.now().toString());
+}

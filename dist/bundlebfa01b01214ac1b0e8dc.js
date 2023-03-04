@@ -628,14 +628,12 @@ function addProject() {
 
 function deleteProject(closeIcon) {
   const { projectId } = closeIcon.parentElement.dataset;
-  console.log('projectId:', projectId);
   (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.deleteProjectFromProjectsList)(projectId);
 }
 
 /* manage active state */
 function switchItemActiveState(items, target) {
   items.forEach((item) => {
-    console.log('entred loop');
     item.classList.remove('active');
   });
   target.classList.add('active');
@@ -695,6 +693,20 @@ function resetActiveSate() {
   }
 }
 
+function addTask() {
+  const inputValue = document.querySelector('.task-modal input').value;
+  const projectName = document.querySelector('#plan-item-title').textContent;
+  const projectsList = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getProjectList)();
+
+  if (inputValue == null || inputValue === '') return;
+  projectsList.forEach((project) => {
+    if (project.title === projectName) {
+      (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.addTodoTask)(project, inputValue);
+      console.log('tasks:', project.tasks);
+    }
+  });
+}
+
 function globalEventsHandler() {
   document.addEventListener('click', (e) => {
     // Manage active states and switches of inbox, today and this week
@@ -752,6 +764,12 @@ function globalEventsHandler() {
     if (e.target.matches('#cancel-task-btn')) {
       cancelAdding('.task-modal');
     }
+    // Handle add task events
+    if (e.target.matches('#add-task-btn')) {
+      console.log('entred event');
+      addTask();
+      changeModalDisplay('.task-modal', 'none');
+    }
   });
 }
 
@@ -770,6 +788,7 @@ function displayController() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addTodoTask": () => (/* binding */ addTodoTask),
 /* harmony export */   "default": () => (/* binding */ addProjectToProjectsList),
 /* harmony export */   "deleteProjectFromProjectsList": () => (/* binding */ deleteProjectFromProjectsList),
 /* harmony export */   "getProjectList": () => (/* binding */ getProjectList)
@@ -825,6 +844,10 @@ function deleteProjectFromProjectsList(projectId) {
 
 function getProjectList() {
   return projectsList;
+}
+
+function addTodoTask(project, title) {
+  project.addTodoTask(title, Date.now().toString());
 }
 
 
@@ -975,4 +998,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle3453310ed219024a3fd2.js.map
+//# sourceMappingURL=bundlebfa01b01214ac1b0e8dc.js.map
