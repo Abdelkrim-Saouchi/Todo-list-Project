@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 const projectsList = [];
-
+const inbox = [];
 class TodosFactory {
   constructor(title, todoId) {
     this.title = title;
@@ -49,6 +49,15 @@ export function deleteProjectFromProjectsList(projectId) {
 
 export function getProjectList() {
   return projectsList;
+}
+
+export function getInbox() {
+  return inbox;
+}
+
+export function addTaskToInbox(inboxList, taskName) {
+  const task = new TodosFactory(taskName, Date.now().toString());
+  inboxList.push(task);
 }
 
 export function addTodoTask(project, title) {

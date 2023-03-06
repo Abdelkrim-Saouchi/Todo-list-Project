@@ -1,6 +1,8 @@
 import addProjectToProjectsList, {
+  addTaskToInbox,
   addTodoTask,
   deleteProjectFromProjectsList,
+  getInbox,
   getProjectList,
 } from '../logic/logicController';
 import projectImg from '../assets/project-img.svg';
@@ -181,6 +183,12 @@ function addTask() {
   const projectsList = getProjectList();
 
   if (inputValue == null || inputValue === '') return;
+  if (projectName === 'Inbox') {
+    const inbox = getInbox();
+    addTaskToInbox(inbox, inputValue);
+    console.log(getInbox());
+    return;
+  }
   projectsList.forEach((project) => {
     if (project.title === projectName) {
       addTodoTask(project, inputValue);
@@ -210,6 +218,14 @@ function renderTasks() {
   const projectsList = getProjectList();
 
   tasksSection.innerHTML = '';
+  if (sideBarOptionTitle === 'Inbox') {
+    const inbox = getInbox();
+    inbox.forEach((task) => {
+      const taskTodo = createTaskInDom(task.title, task.todoId);
+      tasksSection.appendChild(taskTodo);
+    });
+    return;
+  }
   projectsList.forEach((project) => {
     if (project.title === sideBarOptionTitle) {
       project.tasks.forEach((task) => {

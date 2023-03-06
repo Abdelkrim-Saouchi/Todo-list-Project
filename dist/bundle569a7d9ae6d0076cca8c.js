@@ -699,6 +699,12 @@ function addTask() {
   const projectsList = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getProjectList)();
 
   if (inputValue == null || inputValue === '') return;
+  if (projectName === 'Inbox') {
+    const inbox = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)();
+    (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.addTaskToInbox)(inbox, inputValue);
+    console.log((0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)());
+    return;
+  }
   projectsList.forEach((project) => {
     if (project.title === projectName) {
       (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.addTodoTask)(project, inputValue);
@@ -728,6 +734,14 @@ function renderTasks() {
   const projectsList = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getProjectList)();
 
   tasksSection.innerHTML = '';
+  if (sideBarOptionTitle === 'Inbox') {
+    const inbox = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)();
+    inbox.forEach((task) => {
+      const taskTodo = createTaskInDom(task.title, task.todoId);
+      tasksSection.appendChild(taskTodo);
+    });
+    return;
+  }
   projectsList.forEach((project) => {
     if (project.title === sideBarOptionTitle) {
       project.tasks.forEach((task) => {
@@ -826,14 +840,16 @@ function displayController() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addTaskToInbox": () => (/* binding */ addTaskToInbox),
 /* harmony export */   "addTodoTask": () => (/* binding */ addTodoTask),
 /* harmony export */   "default": () => (/* binding */ addProjectToProjectsList),
 /* harmony export */   "deleteProjectFromProjectsList": () => (/* binding */ deleteProjectFromProjectsList),
+/* harmony export */   "getInbox": () => (/* binding */ getInbox),
 /* harmony export */   "getProjectList": () => (/* binding */ getProjectList)
 /* harmony export */ });
 /* eslint-disable max-classes-per-file */
 const projectsList = [];
-
+const inbox = [];
 class TodosFactory {
   constructor(title, todoId) {
     this.title = title;
@@ -882,6 +898,15 @@ function deleteProjectFromProjectsList(projectId) {
 
 function getProjectList() {
   return projectsList;
+}
+
+function getInbox() {
+  return inbox;
+}
+
+function addTaskToInbox(inboxList, taskName) {
+  const task = new TodosFactory(taskName, Date.now().toString());
+  inboxList.push(task);
 }
 
 function addTodoTask(project, title) {
@@ -1036,4 +1061,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundleba7eea2640405474c194.js.map
+//# sourceMappingURL=bundle569a7d9ae6d0076cca8c.js.map
