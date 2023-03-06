@@ -189,11 +189,43 @@ function addTask() {
   });
 }
 
+function createTaskInDom(name, id) {
+  const taskContainer = document.createElement('div');
+  taskContainer.classList.add('task');
+  taskContainer.dataset.taskId = id;
+
+  const taskTitle = document.createElement('h3');
+  taskTitle.textContent = name;
+
+  taskContainer.appendChild(taskTitle);
+
+  return taskContainer;
+}
+
+function renderTasks() {
+  const tasksSection = document.querySelector('.projects-tasks-section');
+  const sideBarOptionTitle =
+    document.querySelector('#plan-item-title').textContent;
+
+  const projectsList = getProjectList();
+
+  tasksSection.innerHTML = '';
+  projectsList.forEach((project) => {
+    if (project.title === sideBarOptionTitle) {
+      project.tasks.forEach((task) => {
+        const taskTodo = createTaskInDom(task.title, task.todoId);
+        tasksSection.appendChild(taskTodo);
+      });
+    }
+  });
+}
+
 function globalEventsHandler() {
   document.addEventListener('click', (e) => {
     // Manage active states and switches of inbox, today and this week
     if (e.target.matches('.plan-items .wrapper')) {
       switchSidebarOptions('.plan-items .wrapper, [data-project-id]', e.target);
+      renderTasks();
     }
     if (e.target.matches('.plan-items .wrapper *')) {
       // added to make sure event will start if child element was pressed
@@ -201,6 +233,7 @@ function globalEventsHandler() {
         '.plan-items .wrapper, [data-project-id]',
         e.target.parentElement
       );
+      renderTasks();
     }
     // Handle add projects button events
     if (
@@ -208,6 +241,7 @@ function globalEventsHandler() {
       e.target.matches('#add-project *')
     ) {
       displayProjectModal();
+      // renderTasks();
     }
     // Handle cancel button events in AddProject modal
     if (e.target.matches('#cancel-btn')) {
@@ -219,16 +253,19 @@ function globalEventsHandler() {
       changeModalDisplay('.modal', 'none');
       renderProjects();
       resetActiveSate();
+      renderTasks();
     }
     // Handle close icon events in project's div
     if (e.target.matches('.close-icon')) {
       deleteProject(e.target);
       renderProjects();
       resetActiveSate();
+      renderTasks();
     }
     // Manage active states changes of projects
     if (e.target.matches('[data-project-id]')) {
       switchSidebarOptions('.plan-items .wrapper, [data-project-id]', e.target);
+      renderTasks();
     }
     if (e.target.matches('[data-project-id] .project-icon, h3')) {
       // added to make sure event will start if child element was pressed,
@@ -237,6 +274,7 @@ function globalEventsHandler() {
         '.plan-items .wrapper, [data-project-id]',
         e.target.parentElement
       );
+      renderTasks();
     }
     // Handle Add task button's events
     if (e.target.matches('.add-task, .add-task *')) {
@@ -248,8 +286,8 @@ function globalEventsHandler() {
     }
     // Handle add task events
     if (e.target.matches('#add-task-btn')) {
-      console.log('entred event');
       addTask();
+      renderTasks();
       changeModalDisplay('.task-modal', 'none');
     }
   });
