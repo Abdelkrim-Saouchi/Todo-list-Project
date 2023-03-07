@@ -186,3 +186,60 @@ footer {
 .btn-container button:is(:hover, :focus) {
   background-color: var(--Accent-color);
 }
+
+/* task container styles */
+
+.task .task-header {
+  display: flex;
+  gap: 16px;
+}
+
+.task .task-header h3 {
+  margin-right: auto;
+}
+
+.task-header img {
+  width: 20px;
+  height: 20px;
+}
+
+.task .task-details {
+  --spacer: 10px;
+  margin-block: var(--spacer);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.task-details .task-btns-container {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacer);
+  margin-block: var(--spacer);
+}
+
+.task-btns-container button {
+  min-width: 100px;
+  padding-block: 5px;
+}
+
+.task-btns-container .edit-task-btn {
+  background-color: var(--Base-color);
+  opacity: 0.7;
+  color: var(--Background-color);
+  outline: 0;
+  border: 0;
+}
+
+.task-btns-container .remove-task-btn {
+  background-color: rgb(218 0 0);
+  opacity: 0.7;
+  color: var(--Background-color);
+  outline: 0;
+  border: 0;
+}
+
+.edit-task-btn:is(:hover, :focus),
+.remove-task-btn:is(:hover, :focus) {
+  opacity: 1;
+}

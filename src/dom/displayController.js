@@ -7,6 +7,7 @@ import addProjectToProjectsList, {
 } from '../logic/logicController';
 import projectImg from '../assets/project-img.svg';
 import removeImg from '../assets/close-small-svgrepo-com.svg';
+import settingImg from '../assets/setting-svgrepo-com.svg';
 
 const projectsDiv = document.querySelector('.projects-list');
 
@@ -137,12 +138,20 @@ function displayTaskModal() {
   displayModal('.task-modal', createAddTaskModal);
 }
 
-function changeModalDisplay(selector, display) {
+function changeDisplay(selector, display) {
   document.querySelector(selector).style.display = display;
 }
 
+function changeTaskDisplay(selector, display) {
+  const taskDetailsDisplay = document.querySelector(selector).style.display;
+  // eslint-disable-next-line no-unused-expressions
+  taskDetailsDisplay === display
+    ? changeDisplay(selector, 'none')
+    : changeDisplay(selector, display);
+}
+
 function cancelAdding(selector) {
-  changeModalDisplay(selector, 'none');
+  changeDisplay(selector, 'none');
 }
 
 function addProject() {
@@ -243,15 +252,58 @@ function addTask() {
   });
 }
 
-function createTaskInDom(name, id) {
+function createTaskInDom(name, id, dueDate, priority, description) {
   const taskContainer = document.createElement('div');
   taskContainer.classList.add('task');
   taskContainer.dataset.taskId = id;
 
+  const taskHeader = document.createElement('div');
+  taskHeader.classList.add('task-header');
+
   const taskTitle = document.createElement('h3');
   taskTitle.textContent = name;
 
-  taskContainer.appendChild(taskTitle);
+  const taskDate = document.createElement('p');
+  taskDate.classList.add('task-due-date');
+  taskDate.textContent = `Date: ${dueDate}`;
+
+  const taskPriority = document.createElement('p');
+  taskPriority.classList.add('task-priority');
+  taskPriority.textContent = `Priority: ${priority}`;
+
+  const taskSettingIcon = document.createElement('img');
+  taskSettingIcon.src = settingImg;
+  taskSettingIcon.classList.add('setting-icon');
+
+  taskHeader.append(taskTitle, taskDate, taskPriority, taskSettingIcon);
+
+  const taskDetails = document.createElement('div');
+  taskDetails.classList.add('task-details');
+
+  const descTitle = document.createElement('h4');
+  descTitle.classList.add('task-description-title');
+  descTitle.textContent = 'Description: ';
+
+  const taskDesc = document.createElement('p');
+  taskDesc.classList.add('task-description');
+  taskDesc.textContent = description;
+
+  const btnsContainer = document.createElement('div');
+  btnsContainer.classList.add('task-btns-container');
+
+  const editTaskBtn = document.createElement('button');
+  editTaskBtn.textContent = 'Edit';
+  editTaskBtn.classList.add('edit-task-btn');
+
+  const removeTaskBtn = document.createElement('button');
+  removeTaskBtn.textContent = 'Remove';
+  removeTaskBtn.classList.add('remove-task-btn');
+
+  btnsContainer.append(editTaskBtn, removeTaskBtn);
+
+  taskDetails.append(descTitle, taskDesc, btnsContainer);
+
+  taskContainer.append(taskHeader, taskDetails);
 
   return taskContainer;
 }
@@ -268,7 +320,13 @@ function renderTasks() {
   if (sideBarOptionTitle === 'Inbox') {
     const inbox = getInbox();
     inbox.forEach((task) => {
-      const taskTodo = createTaskInDom(task.title, task.todoId);
+      const taskTodo = createTaskInDom(
+        task.title,
+        task.todoId,
+        task.dueDate,
+        task.priority,
+        task.description
+      );
       tasksSection.appendChild(taskTodo);
     });
     return;
@@ -276,7 +334,13 @@ function renderTasks() {
   projectsList.forEach((project) => {
     if (project.title === sideBarOptionTitle) {
       project.tasks.forEach((task) => {
-        const taskTodo = createTaskInDom(task.title, task.todoId);
+        const taskTodo = createTaskInDom(
+          task.title,
+          task.todoId,
+          task.dueDate,
+          task.priority,
+          task.description
+        );
         tasksSection.appendChild(taskTodo);
       });
     }
@@ -313,7 +377,7 @@ function globalEventsHandler() {
     // Handle add button events in AddProject Modal
     if (e.target.matches('#add-btn')) {
       addProject();
-      changeModalDisplay('.modal', 'none');
+      changeDisplay('.modal', 'none');
       renderProjects();
       resetActiveSate();
       renderTasks();
@@ -351,7 +415,11 @@ function globalEventsHandler() {
     if (e.target.matches('#add-task-btn')) {
       addTask();
       renderTasks();
-      changeModalDisplay('.task-modal', 'none');
+      changeDisplay('.task-modal', 'none');
+    }
+    // Handle task's setting icon event
+    if (e.target.matches('.setting-icon')) {
+      changeTaskDisplay('.task-details', 'flex');
     }
   });
 }
