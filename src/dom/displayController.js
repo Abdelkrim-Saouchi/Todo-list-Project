@@ -47,6 +47,7 @@ function createModal(clss, labelText, addBtnId, cancelBtnId) {
   modalLabel.textContent = labelText;
 
   const modalInput = document.createElement('input');
+  modalInput.id = 'modal-title';
 
   const btnContainer = document.createElement('div');
   btnContainer.classList.add('btn-container');
@@ -70,12 +71,53 @@ function createAddProjectModal() {
 }
 
 function createAddTaskModal() {
-  return createModal(
+  const modal = createModal(
     'task-modal',
     'Enter Task name',
     'add-task-btn',
     'cancel-task-btn'
   );
+  const btnContainer = modal.querySelector('.btn-container');
+
+  const dueDateLabel = document.createElement('label');
+  dueDateLabel.textContent = 'Due Date: ';
+
+  const dueDateCalendar = document.createElement('input');
+  dueDateCalendar.type = 'date';
+
+  modal.insertBefore(dueDateLabel, btnContainer);
+  modal.insertBefore(dueDateCalendar, btnContainer);
+
+  const priorityLabel = document.createElement('label');
+  priorityLabel.textContent = 'Priority: ';
+  priorityLabel.htmlFor = 'priority';
+
+  const select = document.createElement('select');
+  select.id = 'priority';
+  const topOption = document.createElement('option');
+  topOption.value = 'top';
+  topOption.textContent = 'Top';
+  const mediumOption = document.createElement('option');
+  mediumOption.value = 'medium';
+  mediumOption.textContent = 'Medium';
+  const lowOption = document.createElement('option');
+  lowOption.value = 'low';
+  lowOption.textContent = 'Low';
+  select.append(topOption, mediumOption, lowOption);
+
+  modal.insertBefore(priorityLabel, btnContainer);
+  modal.insertBefore(select, btnContainer);
+
+  const descLabel = document.createElement('label');
+  descLabel.htmlFor = 'description';
+
+  const descArea = document.createElement('textarea');
+  descArea.id = 'description';
+
+  modal.insertBefore(descLabel, btnContainer);
+  modal.insertBefore(descArea, btnContainer);
+
+  return modal;
 }
 
 function displayModal(selector, createFunction) {
@@ -178,20 +220,24 @@ function resetActiveSate() {
 }
 
 function addTask() {
-  const inputValue = document.querySelector('.task-modal input').value;
+  const taskTitle = document.querySelector('.task-modal #modal-title').value;
+  const taskDate = document.querySelector('.task-modal [type="date"]').value;
+  const taskPriority = document.querySelector('.task-modal #priority').value;
+  const taskDesc = document.querySelector('.task-modal #description').value;
+
   const projectName = document.querySelector('#plan-item-title').textContent;
   const projectsList = getProjectList();
 
-  if (inputValue == null || inputValue === '') return;
+  if (taskTitle == null || taskTitle === '') return;
   if (projectName === 'Inbox') {
     const inbox = getInbox();
-    addTaskToInbox(inbox, inputValue);
+    addTaskToInbox(inbox, taskTitle, taskDate, taskPriority, taskDesc);
     console.log(getInbox());
     return;
   }
   projectsList.forEach((project) => {
     if (project.title === projectName) {
-      addTodoTask(project, inputValue);
+      addTodoTask(project, taskTitle, taskDate, taskPriority, taskDesc);
       console.log('tasks:', project.tasks);
     }
   });
@@ -218,6 +264,7 @@ function renderTasks() {
   const projectsList = getProjectList();
 
   tasksSection.innerHTML = '';
+
   if (sideBarOptionTitle === 'Inbox') {
     const inbox = getInbox();
     inbox.forEach((task) => {

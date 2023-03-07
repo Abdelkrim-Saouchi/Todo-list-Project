@@ -563,6 +563,7 @@ function createModal(clss, labelText, addBtnId, cancelBtnId) {
   modalLabel.textContent = labelText;
 
   const modalInput = document.createElement('input');
+  modalInput.id = 'modal-title';
 
   const btnContainer = document.createElement('div');
   btnContainer.classList.add('btn-container');
@@ -586,12 +587,53 @@ function createAddProjectModal() {
 }
 
 function createAddTaskModal() {
-  return createModal(
+  const modal = createModal(
     'task-modal',
     'Enter Task name',
     'add-task-btn',
     'cancel-task-btn'
   );
+  const btnContainer = modal.querySelector('.btn-container');
+
+  const dueDateLabel = document.createElement('label');
+  dueDateLabel.textContent = 'Due Date: ';
+
+  const dueDateCalendar = document.createElement('input');
+  dueDateCalendar.type = 'date';
+
+  modal.insertBefore(dueDateLabel, btnContainer);
+  modal.insertBefore(dueDateCalendar, btnContainer);
+
+  const priorityLabel = document.createElement('label');
+  priorityLabel.textContent = 'Priority: ';
+  priorityLabel.htmlFor = 'priority';
+
+  const select = document.createElement('select');
+  select.id = 'priority';
+  const topOption = document.createElement('option');
+  topOption.value = 'top';
+  topOption.textContent = 'Top';
+  const mediumOption = document.createElement('option');
+  mediumOption.value = 'medium';
+  mediumOption.textContent = 'Medium';
+  const lowOption = document.createElement('option');
+  lowOption.value = 'low';
+  lowOption.textContent = 'Low';
+  select.append(topOption, mediumOption, lowOption);
+
+  modal.insertBefore(priorityLabel, btnContainer);
+  modal.insertBefore(select, btnContainer);
+
+  const descLabel = document.createElement('label');
+  descLabel.htmlFor = 'description';
+
+  const descArea = document.createElement('textarea');
+  descArea.id = 'description';
+
+  modal.insertBefore(descLabel, btnContainer);
+  modal.insertBefore(descArea, btnContainer);
+
+  return modal;
 }
 
 function displayModal(selector, createFunction) {
@@ -694,20 +736,24 @@ function resetActiveSate() {
 }
 
 function addTask() {
-  const inputValue = document.querySelector('.task-modal input').value;
+  const taskTitle = document.querySelector('.task-modal #modal-title').value;
+  const taskDate = document.querySelector('.task-modal [type="date"]').value;
+  const taskPriority = document.querySelector('.task-modal #priority').value;
+  const taskDesc = document.querySelector('.task-modal #description').value;
+
   const projectName = document.querySelector('#plan-item-title').textContent;
   const projectsList = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getProjectList)();
 
-  if (inputValue == null || inputValue === '') return;
+  if (taskTitle == null || taskTitle === '') return;
   if (projectName === 'Inbox') {
     const inbox = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)();
-    (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.addTaskToInbox)(inbox, inputValue);
+    (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.addTaskToInbox)(inbox, taskTitle, taskDate, taskPriority, taskDesc);
     console.log((0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)());
     return;
   }
   projectsList.forEach((project) => {
     if (project.title === projectName) {
-      (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.addTodoTask)(project, inputValue);
+      (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.addTodoTask)(project, taskTitle, taskDate, taskPriority, taskDesc);
       console.log('tasks:', project.tasks);
     }
   });
@@ -734,6 +780,7 @@ function renderTasks() {
   const projectsList = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getProjectList)();
 
   tasksSection.innerHTML = '';
+
   if (sideBarOptionTitle === 'Inbox') {
     const inbox = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)();
     inbox.forEach((task) => {
@@ -851,9 +898,12 @@ __webpack_require__.r(__webpack_exports__);
 const projectsList = [];
 const inbox = [];
 class TodosFactory {
-  constructor(title, todoId) {
+  constructor(title, todoId, dueDate, priority, description) {
     this.title = title;
     this.todoId = todoId;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.description = description;
   }
 }
 
@@ -864,8 +914,14 @@ class ProjectFactory {
     this.tasks = [];
   }
 
-  addTodoTask(title, todoId) {
-    const todo = new TodosFactory(title, todoId);
+  addTodoTask(title, todoId, dueDate, priority, description) {
+    const todo = new TodosFactory(
+      title,
+      todoId,
+      dueDate,
+      priority,
+      description
+    );
     this.tasks.push(todo);
   }
 
@@ -904,13 +960,31 @@ function getInbox() {
   return inbox;
 }
 
-function addTaskToInbox(inboxList, taskName) {
-  const task = new TodosFactory(taskName, Date.now().toString());
+function addTaskToInbox(
+  inboxList,
+  taskName,
+  dueDate,
+  priority,
+  description
+) {
+  const task = new TodosFactory(
+    taskName,
+    Date.now().toString(),
+    dueDate,
+    priority,
+    description
+  );
   inboxList.push(task);
 }
 
-function addTodoTask(project, title) {
-  project.addTodoTask(title, Date.now().toString());
+function addTodoTask(project, title, dueDate, priority, description) {
+  project.addTodoTask(
+    title,
+    Date.now().toString(),
+    dueDate,
+    priority,
+    description
+  );
 }
 
 
@@ -1061,4 +1135,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle569a7d9ae6d0076cca8c.js.map
+//# sourceMappingURL=bundlef837d262b8fda33f4b2c.js.map

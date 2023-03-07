@@ -2,9 +2,12 @@
 const projectsList = [];
 const inbox = [];
 class TodosFactory {
-  constructor(title, todoId) {
+  constructor(title, todoId, dueDate, priority, description) {
     this.title = title;
     this.todoId = todoId;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.description = description;
   }
 }
 
@@ -15,8 +18,14 @@ class ProjectFactory {
     this.tasks = [];
   }
 
-  addTodoTask(title, todoId) {
-    const todo = new TodosFactory(title, todoId);
+  addTodoTask(title, todoId, dueDate, priority, description) {
+    const todo = new TodosFactory(
+      title,
+      todoId,
+      dueDate,
+      priority,
+      description
+    );
     this.tasks.push(todo);
   }
 
@@ -55,11 +64,29 @@ export function getInbox() {
   return inbox;
 }
 
-export function addTaskToInbox(inboxList, taskName) {
-  const task = new TodosFactory(taskName, Date.now().toString());
+export function addTaskToInbox(
+  inboxList,
+  taskName,
+  dueDate,
+  priority,
+  description
+) {
+  const task = new TodosFactory(
+    taskName,
+    Date.now().toString(),
+    dueDate,
+    priority,
+    description
+  );
   inboxList.push(task);
 }
 
-export function addTodoTask(project, title) {
-  project.addTodoTask(title, Date.now().toString());
+export function addTodoTask(project, title, dueDate, priority, description) {
+  project.addTodoTask(
+    title,
+    Date.now().toString(),
+    dueDate,
+    priority,
+    description
+  );
 }
