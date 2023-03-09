@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n  position: relative;\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n/* close icon */\n.wrapper .close-icon {\n  margin-left: auto;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\n.container .add-task {\n  margin-block: 16px;\n  display: flex;\n  gap: 10px;\n  max-width: fit-content;\n  padding: 10px;\n  border-radius: 12px;\n  cursor: pointer;\n}\n\n.container .add-task:is(:hover, :focus) {\n  background-color: var(--Background-color);\n}\n\n.container .add-task img {\n  width: 20px;\n  height: 20px;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n\n.modal,\n.task-modal {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 9999;\n  background-color: var(--Base-color);\n  color: var(--Background-color);\n  padding: 16px 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  border-radius: 12px;\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);\n}\n\n.modal input,\n.task-modal input {\n  outline: 0;\n}\n\n.modal .btn-container,\n.task-modal .btn-container {\n  align-self: center;\n  display: flex;\n  gap: 8px;\n}\n\n.modal .btn-container button,\n.task-modal .btn-container button {\n  /* align-self: center; */\n  color: var(--Background-color);\n  background-color: var(--Text-color);\n  outline: 0;\n  border: 0;\n  min-width: 50px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn-container button:is(:hover, :focus) {\n  background-color: var(--Accent-color);\n}\n\n/* task container styles */\n\n.task .task-header {\n  display: flex;\n  gap: 16px;\n}\n\n.task .task-header h3 {\n  margin-right: auto;\n}\n\n.task-header img {\n  width: 20px;\n  height: 20px;\n}\n\n.task-header h3,\n.task-header img {\n  cursor: pointer;\n}\n\n.task .task-details {\n  --spacer: 10px;\n  margin-block: var(--spacer);\n  display: none;\n  flex-direction: column;\n  align-items: center;\n}\n\n.task-details .task-btns-container {\n  display: flex;\n  justify-content: space-between;\n  gap: var(--spacer);\n  margin-block: var(--spacer);\n}\n\n.task-btns-container button {\n  min-width: 100px;\n  padding-block: 5px;\n  cursor: pointer;\n}\n\n.task-btns-container .edit-task-btn {\n  background-color: var(--Base-color);\n  opacity: 0.7;\n  color: var(--Background-color);\n  outline: 0;\n  border: 0;\n}\n\n.task-btns-container .remove-task-btn {\n  background-color: rgb(218 0 0);\n  opacity: 0.7;\n  color: var(--Background-color);\n  outline: 0;\n  border: 0;\n}\n\n.edit-task-btn:is(:hover, :focus),\n.remove-task-btn:is(:hover, :focus) {\n  opacity: 1;\n}\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,2BAA2B;EAC3B,qCAAqC;EACrC,qBAAqB;EACrB,+BAA+B;;EAE/B,0BAA0B;EAC1B,0BAA0B;AAC5B;;AAEA;;;EAGE,SAAS;EACT,sBAAsB;AACxB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,iCAAiC;EACjC,wBAAwB;EACxB,kBAAkB;AACpB;;AAEA;;;;GAIG;;AAEH;EACE,mCAAmC;EACnC,0BAA0B;EAC1B,wCAAwC;EACxC,yCAAyC;EACzC,wBAAwB;AAC1B;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,sBAAsB;EACtB,0BAA0B;AAC5B;;AAEA;EACE;uBACqB;EACrB,yCAAyC;AAC3C;;AAEA;EACE,gBAAgB;EAChB,aAAa;EACb,6CAA6C;EAC7C,uBAAuB;EACvB,uCAAuC;AACzC;;AAEA;EACE,wBAAwB;EACxB,wCAAwC;AAC1C;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,SAAS;EACT,YAAY;EACZ,wCAAwC;EACxC,uCAAuC;EACvC,mBAAmB;EACnB,eAAe;AACjB;;AAEA;EACE,2CAA2C;AAC7C;AACA;EACE,2CAA2C;AAC7C;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA,eAAe;AACf;EACE,iBAAiB;AACnB;;AAEA;EACE,wCAAwC;AAC1C;;AAEA;EACE,wBAAwB;EACxB,2CAA2C;EAC3C,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,UAAU;EACV,WAAW;AACb;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,SAAS;EACT,sBAAsB;EACtB,aAAa;EACb,mBAAmB;EACnB,eAAe;AACjB;;AAEA;EACE,yCAAyC;AAC3C;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA;EACE,qBAAqB;EACrB,wBAAwB;EACxB,kBAAkB;EAClB,wCAAwC;EACxC,yCAAyC;EACzC,mCAAmC;EACnC,0BAA0B;AAC5B;;AAEA;;EAEE,kBAAkB;EAClB,QAAQ;EACR,SAAS;EACT,gCAAgC;EAChC,aAAa;EACb,mCAAmC;EACnC,8BAA8B;EAC9B,kBAAkB;EAClB,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,mBAAmB;EACnB,2CAA2C;AAC7C;;AAEA;;EAEE,UAAU;AACZ;;AAEA;;EAEE,kBAAkB;EAClB,aAAa;EACb,QAAQ;AACV;;AAEA;;EAEE,wBAAwB;EACxB,8BAA8B;EAC9B,mCAAmC;EACnC,UAAU;EACV,SAAS;EACT,eAAe;EACf,kBAAkB;EAClB,eAAe;AACjB;;AAEA;EACE,qCAAqC;AACvC;;AAEA,0BAA0B;;AAE1B;EACE,aAAa;EACb,SAAS;AACX;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA;;EAEE,eAAe;AACjB;;AAEA;EACE,cAAc;EACd,2BAA2B;EAC3B,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,kBAAkB;EAClB,2BAA2B;AAC7B;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,eAAe;AACjB;;AAEA;EACE,mCAAmC;EACnC,YAAY;EACZ,8BAA8B;EAC9B,UAAU;EACV,SAAS;AACX;;AAEA;EACE,8BAA8B;EAC9B,YAAY;EACZ,8BAA8B;EAC9B,UAAU;EACV,SAAS;AACX;;AAEA;;EAEE,UAAU;AACZ","sourcesContent":[":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n  position: relative;\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n/* close icon */\n.wrapper .close-icon {\n  margin-left: auto;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\n.container .add-task {\n  margin-block: 16px;\n  display: flex;\n  gap: 10px;\n  max-width: fit-content;\n  padding: 10px;\n  border-radius: 12px;\n  cursor: pointer;\n}\n\n.container .add-task:is(:hover, :focus) {\n  background-color: var(--Background-color);\n}\n\n.container .add-task img {\n  width: 20px;\n  height: 20px;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n\n.modal,\n.task-modal {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 9999;\n  background-color: var(--Base-color);\n  color: var(--Background-color);\n  padding: 16px 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  border-radius: 12px;\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);\n}\n\n.modal input,\n.task-modal input {\n  outline: 0;\n}\n\n.modal .btn-container,\n.task-modal .btn-container {\n  align-self: center;\n  display: flex;\n  gap: 8px;\n}\n\n.modal .btn-container button,\n.task-modal .btn-container button {\n  /* align-self: center; */\n  color: var(--Background-color);\n  background-color: var(--Text-color);\n  outline: 0;\n  border: 0;\n  min-width: 50px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn-container button:is(:hover, :focus) {\n  background-color: var(--Accent-color);\n}\n\n/* task container styles */\n\n.task .task-header {\n  display: flex;\n  gap: 16px;\n}\n\n.task .task-header h3 {\n  margin-right: auto;\n}\n\n.task-header img {\n  width: 20px;\n  height: 20px;\n}\n\n.task-header h3,\n.task-header img {\n  cursor: pointer;\n}\n\n.task .task-details {\n  --spacer: 10px;\n  margin-block: var(--spacer);\n  display: none;\n  flex-direction: column;\n  align-items: center;\n}\n\n.task-details .task-btns-container {\n  display: flex;\n  justify-content: space-between;\n  gap: var(--spacer);\n  margin-block: var(--spacer);\n}\n\n.task-btns-container button {\n  min-width: 100px;\n  padding-block: 5px;\n  cursor: pointer;\n}\n\n.task-btns-container .edit-task-btn {\n  background-color: var(--Base-color);\n  opacity: 0.7;\n  color: var(--Background-color);\n  outline: 0;\n  border: 0;\n}\n\n.task-btns-container .remove-task-btn {\n  background-color: rgb(218 0 0);\n  opacity: 0.7;\n  color: var(--Background-color);\n  outline: 0;\n  border: 0;\n}\n\n.edit-task-btn:is(:hover, :focus),\n.remove-task-btn:is(:hover, :focus) {\n  opacity: 1;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n  position: relative;\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n/* close icon */\n.wrapper .close-icon {\n  margin-left: auto;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\n.container .add-task {\n  margin-block: 16px;\n  display: flex;\n  gap: 10px;\n  max-width: fit-content;\n  padding: 10px;\n  border-radius: 12px;\n  cursor: pointer;\n}\n\n.container .add-task:is(:hover, :focus) {\n  background-color: var(--Background-color);\n}\n\n.container .add-task img {\n  width: 20px;\n  height: 20px;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n\n.modal,\n.task-modal,\n.update-task-modal {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 9999;\n  background-color: var(--Base-color);\n  color: var(--Background-color);\n  padding: 16px 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  border-radius: 12px;\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);\n}\n\n.modal input,\n.task-modal input,\n.update-task-modal input {\n  outline: 0;\n}\n\n.modal .btn-container,\n.task-modal .btn-container,\n.update-task-modal .btn-container {\n  align-self: center;\n  display: flex;\n  gap: 8px;\n}\n\n.modal .btn-container button,\n.task-modal .btn-container button,\n.update-task-modal .btn-container button {\n  /* align-self: center; */\n  color: var(--Background-color);\n  background-color: var(--Text-color);\n  outline: 0;\n  border: 0;\n  min-width: 50px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn-container button:is(:hover, :focus) {\n  background-color: var(--Accent-color);\n}\n\n/* task container styles */\n\n.task .task-header {\n  display: flex;\n  gap: 16px;\n}\n\n.task .task-header h3 {\n  margin-right: auto;\n}\n\n.task-header img {\n  width: 20px;\n  height: 20px;\n}\n\n.task-header h3,\n.task-header img {\n  cursor: pointer;\n}\n\n.task .task-details {\n  --spacer: 10px;\n  margin-block: var(--spacer);\n  display: none;\n  flex-direction: column;\n  align-items: center;\n}\n\n.task-details .task-btns-container {\n  display: flex;\n  justify-content: space-between;\n  gap: var(--spacer);\n  margin-block: var(--spacer);\n}\n\n.task-btns-container button {\n  min-width: 100px;\n  padding-block: 5px;\n  cursor: pointer;\n}\n\n.task-btns-container .edit-task-btn {\n  background-color: var(--Base-color);\n  opacity: 0.7;\n  color: var(--Background-color);\n  outline: 0;\n  border: 0;\n}\n\n.task-btns-container .remove-task-btn {\n  background-color: rgb(218 0 0);\n  opacity: 0.7;\n  color: var(--Background-color);\n  outline: 0;\n  border: 0;\n}\n\n.edit-task-btn:is(:hover, :focus),\n.remove-task-btn:is(:hover, :focus) {\n  opacity: 1;\n}\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,qBAAqB;EACrB,uBAAuB;EACvB,2BAA2B;EAC3B,qCAAqC;EACrC,qBAAqB;EACrB,+BAA+B;;EAE/B,0BAA0B;EAC1B,0BAA0B;AAC5B;;AAEA;;;EAGE,SAAS;EACT,sBAAsB;AACxB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,iCAAiC;EACjC,wBAAwB;EACxB,kBAAkB;AACpB;;AAEA;;;;GAIG;;AAEH;EACE,mCAAmC;EACnC,0BAA0B;EAC1B,wCAAwC;EACxC,yCAAyC;EACzC,wBAAwB;AAC1B;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,sBAAsB;EACtB,0BAA0B;AAC5B;;AAEA;EACE;uBACqB;EACrB,yCAAyC;AAC3C;;AAEA;EACE,gBAAgB;EAChB,aAAa;EACb,6CAA6C;EAC7C,uBAAuB;EACvB,uCAAuC;AACzC;;AAEA;EACE,wBAAwB;EACxB,wCAAwC;AAC1C;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,SAAS;EACT,YAAY;EACZ,wCAAwC;EACxC,uCAAuC;EACvC,mBAAmB;EACnB,eAAe;AACjB;;AAEA;EACE,2CAA2C;AAC7C;AACA;EACE,2CAA2C;AAC7C;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA,eAAe;AACf;EACE,iBAAiB;AACnB;;AAEA;EACE,wCAAwC;AAC1C;;AAEA;EACE,wBAAwB;EACxB,2CAA2C;EAC3C,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,UAAU;EACV,WAAW;AACb;;AAEA;EACE,kBAAkB;EAClB,aAAa;EACb,SAAS;EACT,sBAAsB;EACtB,aAAa;EACb,mBAAmB;EACnB,eAAe;AACjB;;AAEA;EACE,yCAAyC;AAC3C;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA;EACE,qBAAqB;EACrB,wBAAwB;EACxB,kBAAkB;EAClB,wCAAwC;EACxC,yCAAyC;EACzC,mCAAmC;EACnC,0BAA0B;AAC5B;;AAEA;;;EAGE,kBAAkB;EAClB,QAAQ;EACR,SAAS;EACT,gCAAgC;EAChC,aAAa;EACb,mCAAmC;EACnC,8BAA8B;EAC9B,kBAAkB;EAClB,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,mBAAmB;EACnB,2CAA2C;AAC7C;;AAEA;;;EAGE,UAAU;AACZ;;AAEA;;;EAGE,kBAAkB;EAClB,aAAa;EACb,QAAQ;AACV;;AAEA;;;EAGE,wBAAwB;EACxB,8BAA8B;EAC9B,mCAAmC;EACnC,UAAU;EACV,SAAS;EACT,eAAe;EACf,kBAAkB;EAClB,eAAe;AACjB;;AAEA;EACE,qCAAqC;AACvC;;AAEA,0BAA0B;;AAE1B;EACE,aAAa;EACb,SAAS;AACX;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,YAAY;AACd;;AAEA;;EAEE,eAAe;AACjB;;AAEA;EACE,cAAc;EACd,2BAA2B;EAC3B,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,kBAAkB;EAClB,2BAA2B;AAC7B;;AAEA;EACE,gBAAgB;EAChB,kBAAkB;EAClB,eAAe;AACjB;;AAEA;EACE,mCAAmC;EACnC,YAAY;EACZ,8BAA8B;EAC9B,UAAU;EACV,SAAS;AACX;;AAEA;EACE,8BAA8B;EAC9B,YAAY;EACZ,8BAA8B;EAC9B,UAAU;EACV,SAAS;AACX;;AAEA;;EAEE,UAAU;AACZ","sourcesContent":[":root {\n  --Base-color: #36b37e;\n  --Accent-color: #ffc400;\n  --Background-color: #fbfbfb;\n  --Secondary-bg-color: hsl(0, 0%, 85%);\n  --Text-color: #333f50;\n  --Secondary-text-color: #9b9b9b;\n\n  --top-bottom-padding: 16px;\n  --right-left-padding: 16px;\n}\n\n*,\n*::before,\n*::after {\n  margin: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  min-height: 100vh;\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  color: var(--Text-color);\n  position: relative;\n}\n\n/* .container {\n  max-width: 90%;\n  height: 100%;\n  margin-inline: auto;\n} */\n\nheader {\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  /* grid-column: 1 / 3; */\n}\n\nh1 img {\n  width: 30px;\n  height: 28px;\n  vertical-align: middle;\n  color: var(--Accent-color);\n}\n\nmain {\n  /* width: 90%;\n  padding: 16px auto; */\n  background-color: var(--Background-color);\n}\n\nmain .content {\n  min-height: 100%;\n  display: grid;\n  grid-template-columns: minmax(100px, 15%) 1fr;\n  grid-template-rows: 1fr;\n  padding-left: var(--right-left-padding);\n}\n\nmain .side-bar {\n  /* grid-column: 1 / 2; */\n  padding-block: var(--top-bottom-padding);\n}\n\n.side-bar .wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 8px;\n  margin-bottom: var(--top-bottom-padding);\n  margin-right: var(--right-left-padding);\n  border-radius: 10px;\n  cursor: pointer;\n}\n\n.side-bar .wrapper:hover {\n  background-color: var(--Secondary-bg-color);\n}\n.side-bar .wrapper.active {\n  background-color: var(--Secondary-bg-color);\n}\n\n.wrapper h2 {\n  font-size: 16px;\n}\n\n.wrapper img {\n  width: 20px;\n  height: 20px;\n}\n\n/* close icon */\n.wrapper .close-icon {\n  margin-left: auto;\n}\n\n.projects h2 {\n  margin-bottom: var(--top-bottom-padding);\n}\n\nmain .main-content {\n  /* grid-column: 2 / 3; */\n  background-color: var(--Secondary-bg-color);\n  display: grid;\n  place-items: center;\n}\n\n.main-content .container {\n  width: 80%;\n  height: 90%;\n}\n\n.container .add-task {\n  margin-block: 16px;\n  display: flex;\n  gap: 10px;\n  max-width: fit-content;\n  padding: 10px;\n  border-radius: 12px;\n  cursor: pointer;\n}\n\n.container .add-task:is(:hover, :focus) {\n  background-color: var(--Background-color);\n}\n\n.container .add-task img {\n  width: 20px;\n  height: 20px;\n}\n\nfooter {\n  /* grid-row: 3 / 4; */\n  /* grid-column: 1 / 3; */\n  text-align: center;\n  padding-block: var(--top-bottom-padding);\n  padding-inline: var(--right-left-padding);\n  background-color: var(--Base-color);\n  color: var(--Accent-color);\n}\n\n.modal,\n.task-modal,\n.update-task-modal {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 9999;\n  background-color: var(--Base-color);\n  color: var(--Background-color);\n  padding: 16px 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  border-radius: 12px;\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);\n}\n\n.modal input,\n.task-modal input,\n.update-task-modal input {\n  outline: 0;\n}\n\n.modal .btn-container,\n.task-modal .btn-container,\n.update-task-modal .btn-container {\n  align-self: center;\n  display: flex;\n  gap: 8px;\n}\n\n.modal .btn-container button,\n.task-modal .btn-container button,\n.update-task-modal .btn-container button {\n  /* align-self: center; */\n  color: var(--Background-color);\n  background-color: var(--Text-color);\n  outline: 0;\n  border: 0;\n  min-width: 50px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.btn-container button:is(:hover, :focus) {\n  background-color: var(--Accent-color);\n}\n\n/* task container styles */\n\n.task .task-header {\n  display: flex;\n  gap: 16px;\n}\n\n.task .task-header h3 {\n  margin-right: auto;\n}\n\n.task-header img {\n  width: 20px;\n  height: 20px;\n}\n\n.task-header h3,\n.task-header img {\n  cursor: pointer;\n}\n\n.task .task-details {\n  --spacer: 10px;\n  margin-block: var(--spacer);\n  display: none;\n  flex-direction: column;\n  align-items: center;\n}\n\n.task-details .task-btns-container {\n  display: flex;\n  justify-content: space-between;\n  gap: var(--spacer);\n  margin-block: var(--spacer);\n}\n\n.task-btns-container button {\n  min-width: 100px;\n  padding-block: 5px;\n  cursor: pointer;\n}\n\n.task-btns-container .edit-task-btn {\n  background-color: var(--Base-color);\n  opacity: 0.7;\n  color: var(--Background-color);\n  outline: 0;\n  border: 0;\n}\n\n.task-btns-container .remove-task-btn {\n  background-color: rgb(218 0 0);\n  opacity: 0.7;\n  color: var(--Background-color);\n  outline: 0;\n  border: 0;\n}\n\n.edit-task-btn:is(:hover, :focus),\n.remove-task-btn:is(:hover, :focus) {\n  opacity: 1;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -638,6 +638,19 @@ function createAddTaskModal() {
   return modal;
 }
 
+function createUpdateTaskModal() {
+  const modal = createAddTaskModal();
+  modal.classList.remove('task-modal');
+  modal.classList.add('update-task-modal');
+  const updateBtn = modal.querySelector('#add-task-btn');
+  updateBtn.textContent = 'Update';
+  updateBtn.id = 'update-task-btn';
+  const cancelUpdateBtn = modal.querySelector('#cancel-task-btn');
+  cancelUpdateBtn.id = 'cancel-update-task-btn';
+
+  return modal;
+}
+
 function resetModalInputs(modalSelector) {
   const modal = document.querySelector(modalSelector);
   const inputs = Array.from(modal.querySelectorAll('input,textarea'));
@@ -662,6 +675,10 @@ function displayProjectModal() {
 
 function displayTaskModal() {
   displayModal('.task-modal', createAddTaskModal);
+}
+
+function displayUpdateTaskModal() {
+  displayModal('.update-task-modal', createUpdateTaskModal);
 }
 
 function changeDisplay(selector, display) {
@@ -770,13 +787,11 @@ function addTask() {
   if (projectName === 'Inbox') {
     const inbox = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)();
     (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.addTaskToInbox)(inbox, taskTitle, taskDate, taskPriority, taskDesc);
-    console.log((0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)());
     return;
   }
   projectsList.forEach((project) => {
     if (project.title === projectName) {
       (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.addTodoTask)(project, taskTitle, taskDate, taskPriority, taskDesc);
-      console.log('tasks:', project.tasks);
     }
   });
 }
@@ -784,10 +799,10 @@ function addTask() {
 function deleteTask(target) {
   const task = target.parentElement.parentElement.parentElement;
   const { taskId } = task.dataset;
-  const title = document.querySelector('#plan-item-title').textContent;
+  const sectionTitle = document.querySelector('#plan-item-title').textContent;
   const projects = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getProjectList)();
 
-  if (title === 'Inbox') {
+  if (sectionTitle === 'Inbox') {
     const inbox = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)();
     inbox.forEach((todoTask) => {
       if (todoTask.todoId === taskId) {
@@ -798,13 +813,102 @@ function deleteTask(target) {
   }
 
   projects.forEach((project) => {
-    if (project.title === title) {
+    if (project.title === sectionTitle) {
       project.tasks.forEach((todoTask) => {
         if (todoTask.todoId === taskId) {
           project.tasks.splice(project.tasks.indexOf(todoTask), 1);
         }
       });
     }
+  });
+}
+
+function getTaskData(listType, taskId) {
+  const data = [];
+  if (listType === 'project') {
+    const projects = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getProjectList)();
+    projects.forEach((project) => {
+      project.tasks.forEach((task) => {
+        if (task.todoId === taskId) {
+          data.push(task.title);
+          data.push(task.dueDate);
+          data.push(task.priority);
+          data.push(task.description);
+        }
+      });
+    });
+  } else {
+    const inbox = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)();
+    inbox.forEach((task) => {
+      if (task.todoId === taskId) {
+        data.push(task.title);
+        data.push(task.dueDate);
+        data.push(task.priority);
+        data.push(task.description);
+      }
+    });
+  }
+
+  return data;
+}
+
+function fillUpdateTaskModal(target) {
+  const modal = document.querySelector('.update-task-modal');
+  const taskTitle = modal.querySelector('#modal-title');
+  const taskDueDate = modal.querySelector('[type="date"]');
+  const taskPriority = modal.querySelector('select');
+  const taskDesc = modal.querySelector('textarea');
+  const targetTask = target.parentElement.parentElement.parentElement;
+  const targetTaskId = targetTask.dataset.taskId;
+  const sectionTitle = document.querySelector('#plan-item-title').textContent;
+
+  if (sectionTitle === 'Inbox') {
+    const [title, dueDate, priority, description] = getTaskData(
+      'inbox',
+      targetTaskId
+    );
+    taskTitle.value = title;
+    taskDueDate.value = dueDate;
+    taskPriority.value = priority;
+    taskDesc.value = description;
+  } else {
+    const [title, dueDate, priority, description] = getTaskData(
+      'project',
+      targetTaskId
+    );
+    taskTitle.value = title;
+    taskDueDate.value = dueDate;
+    taskPriority.value = priority;
+    taskDesc.value = description;
+  }
+}
+
+function updateTask(target) {
+  const targetTask = target.parentElement.parentElement.parentElement;
+  const targetTaskId = targetTask.dataset.taskId;
+  const sectionTitle = document.querySelector('#plan-item-title').textContent;
+  const modal = document.querySelector('.update-task-modal');
+  const taskTitle = modal.querySelector('#modal-title').value;
+  const taskDueDate = modal.querySelector('[type="date"]').value;
+  const taskPriority = modal.querySelector('select').value;
+  const taskDesc = modal.querySelector('textarea').value;
+  const projects = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getProjectList)();
+
+  if (sectionTitle === 'Inbox') {
+    const inbox = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)();
+    inbox.forEach((task) => {
+      if (task.id === targetTaskId) {
+        task.setTodoTask(taskTitle, taskDueDate, taskPriority, taskDesc);
+      }
+    });
+    return;
+  }
+  projects.forEach((project) => {
+    project.tasks.forEach((task) => {
+      if (task.id === targetTaskId) {
+        task.setTodoTask(taskTitle, taskDueDate, taskPriority, taskDesc);
+      }
+    });
   });
 }
 
@@ -985,6 +1089,21 @@ function globalEventsHandler() {
       deleteTask(e.target);
       renderTasks();
     }
+    // Handle edit task button
+    if (e.target.matches('.edit-task-btn')) {
+      displayUpdateTaskModal();
+      fillUpdateTaskModal(e.target);
+    }
+    // Handle cancel edit task button
+    if (e.target.matches('#cancel-update-task-btn')) {
+      cancelAdding('.update-task-modal');
+    }
+    // Handle update edit task button
+    if (e.target.matches('#update-task-btn')) {
+      updateTask(e.target);
+      renderTasks();
+      changeDisplay('.update-task-modal', 'none');
+    }
   });
 }
 
@@ -1017,6 +1136,13 @@ class TodosFactory {
   constructor(title, todoId, dueDate, priority, description) {
     this.title = title;
     this.todoId = todoId;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.description = description;
+  }
+
+  setTodoTask(title, dueDate, priority, description) {
+    this.title = title;
     this.dueDate = dueDate;
     this.priority = priority;
     this.description = description;
@@ -1261,4 +1387,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle9cfa203ffa860fe50dd1.js.map
+//# sourceMappingURL=bundledaf238b63deed24221c3.js.map
