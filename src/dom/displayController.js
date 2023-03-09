@@ -121,6 +121,15 @@ function createAddTaskModal() {
   return modal;
 }
 
+function resetModalInputs(modalSelector) {
+  const modal = document.querySelector(modalSelector);
+  const inputs = Array.from(modal.querySelectorAll('input,textarea'));
+  inputs.forEach((input) => {
+    // eslint-disable-next-line no-param-reassign
+    input.value = '';
+  });
+}
+
 function displayModal(selector, createFunction) {
   let modal = document.querySelector(selector);
   if (modal === null) {
@@ -142,12 +151,15 @@ function changeDisplay(selector, display) {
   document.querySelector(selector).style.display = display;
 }
 
-function changeTaskDisplay(selector, display) {
-  const taskDetailsDisplay = document.querySelector(selector).style.display;
+function changeTaskDisplay(display, target) {
+  const taskDataId = target.parentElement.parentElement.dataset.taskId;
+  const taskDetailsDisplay = document.querySelector(`#detail-${taskDataId}`)
+    .style.display;
+
   // eslint-disable-next-line no-unused-expressions
   taskDetailsDisplay === display
-    ? changeDisplay(selector, 'none')
-    : changeDisplay(selector, display);
+    ? changeDisplay(`#detail-${taskDataId}`, 'none')
+    : changeDisplay(`#detail-${taskDataId}`, display);
 }
 
 function cancelAdding(selector) {
@@ -252,6 +264,33 @@ function addTask() {
   });
 }
 
+function deleteTask(target) {
+  const task = target.parentElement.parentElement.parentElement;
+  const { taskId } = task.dataset;
+  const title = document.querySelector('#plan-item-title').textContent;
+  const projects = getProjectList();
+
+  if (title === 'Inbox') {
+    const inbox = getInbox();
+    inbox.forEach((todoTask) => {
+      if (todoTask.todoId === taskId) {
+        inbox.splice(inbox.indexOf(todoTask), 1);
+      }
+    });
+    return;
+  }
+
+  projects.forEach((project) => {
+    if (project.title === title) {
+      project.tasks.forEach((todoTask) => {
+        if (todoTask.todoId === taskId) {
+          project.tasks.splice(project.tasks.indexOf(todoTask), 1);
+        }
+      });
+    }
+  });
+}
+
 function createTaskInDom(name, id, dueDate, priority, description) {
   const taskContainer = document.createElement('div');
   taskContainer.classList.add('task');
@@ -279,6 +318,7 @@ function createTaskInDom(name, id, dueDate, priority, description) {
 
   const taskDetails = document.createElement('div');
   taskDetails.classList.add('task-details');
+  taskDetails.id = `detail-${id}`;
 
   const descTitle = document.createElement('h4');
   descTitle.classList.add('task-description-title');
@@ -368,6 +408,7 @@ function globalEventsHandler() {
       e.target.matches('#add-project *')
     ) {
       displayProjectModal();
+      resetModalInputs('.modal');
       // renderTasks();
     }
     // Handle cancel button events in AddProject modal
@@ -406,6 +447,7 @@ function globalEventsHandler() {
     // Handle Add task button's events
     if (e.target.matches('.add-task, .add-task *')) {
       displayTaskModal();
+      resetModalInputs('.task-modal');
     }
     // Handle cancel adding task event
     if (e.target.matches('#cancel-task-btn')) {
@@ -419,7 +461,12 @@ function globalEventsHandler() {
     }
     // Handle task's setting icon event
     if (e.target.matches('.setting-icon')) {
-      changeTaskDisplay('.task-details', 'flex');
+      changeTaskDisplay('flex', e.target);
+    }
+    // Handle task remove button
+    if (e.target.matches('.remove-task-btn')) {
+      deleteTask(e.target);
+      renderTasks();
     }
   });
 }
