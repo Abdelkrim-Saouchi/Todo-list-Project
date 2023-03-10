@@ -9284,7 +9284,11 @@ function addTask() {
   const projectsList = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getProjectList)();
 
   if (taskTitle == null || taskTitle === '') return;
-  if (projectName === 'Inbox') {
+  if (
+    projectName === 'Inbox' ||
+    projectName === 'Today' ||
+    projectName === 'This week'
+  ) {
     const inbox = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)();
     (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.addTaskToInbox)(inbox, taskTitle, taskDate, taskPriority, taskDesc);
     return;
@@ -9522,6 +9526,16 @@ function getWeekTasks() {
   return weekTasks;
 }
 
+function taskBtnsHidder() {
+  const btnsContainers = Array.from(
+    document.querySelectorAll('.task .task-btns-container')
+  );
+  btnsContainers.forEach((btnContainer) => {
+    // eslint-disable-next-line no-param-reassign
+    btnContainer.style.display = 'none';
+  });
+}
+
 function renderTasks() {
   const tasksSection = document.querySelector('.projects-tasks-section');
   const sideBarOptionTitle =
@@ -9556,6 +9570,7 @@ function renderTasks() {
         task.description
       );
       tasksSection.appendChild(taskTodo);
+      taskBtnsHidder(); // hide edit remove btns to make today and this week display only tasks
     });
     return;
   }
@@ -9571,6 +9586,7 @@ function renderTasks() {
         task.description
       );
       tasksSection.appendChild(taskTodo);
+      taskBtnsHidder(); // hide edit remove btns to make today and this week display only tasks
     });
     return;
   }
@@ -9969,4 +9985,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle67f21414b2aeeec9c8a5.js.map
+//# sourceMappingURL=bundle39ad1e13e3c1b97db35c.js.map

@@ -269,7 +269,11 @@ function addTask() {
   const projectsList = getProjectList();
 
   if (taskTitle == null || taskTitle === '') return;
-  if (projectName === 'Inbox') {
+  if (
+    projectName === 'Inbox' ||
+    projectName === 'Today' ||
+    projectName === 'This week'
+  ) {
     const inbox = getInbox();
     addTaskToInbox(inbox, taskTitle, taskDate, taskPriority, taskDesc);
     return;
@@ -507,6 +511,16 @@ function getWeekTasks() {
   return weekTasks;
 }
 
+function taskBtnsHidder() {
+  const btnsContainers = Array.from(
+    document.querySelectorAll('.task .task-btns-container')
+  );
+  btnsContainers.forEach((btnContainer) => {
+    // eslint-disable-next-line no-param-reassign
+    btnContainer.style.display = 'none';
+  });
+}
+
 function renderTasks() {
   const tasksSection = document.querySelector('.projects-tasks-section');
   const sideBarOptionTitle =
@@ -541,6 +555,7 @@ function renderTasks() {
         task.description
       );
       tasksSection.appendChild(taskTodo);
+      taskBtnsHidder(); // hide edit remove btns to make today and this week display only tasks
     });
     return;
   }
@@ -556,6 +571,7 @@ function renderTasks() {
         task.description
       );
       tasksSection.appendChild(taskTodo);
+      taskBtnsHidder(); // hide edit remove btns to make today and this week display only tasks
     });
     return;
   }
