@@ -1,3 +1,4 @@
+import { parse, parseISO, isSameDay, format, getISOWeek } from 'date-fns';
 import addProjectToProjectsList, {
   addTaskToInbox,
   addTodoTask,
@@ -260,6 +261,7 @@ function resetActiveSate() {
 function addTask() {
   const taskTitle = document.querySelector('.task-modal #modal-title').value;
   const taskDate = document.querySelector('.task-modal [type="date"]').value;
+
   const taskPriority = document.querySelector('.task-modal #priority').value;
   const taskDesc = document.querySelector('.task-modal #description').value;
 
@@ -396,6 +398,16 @@ function updateTask(target) {
 }
 
 function createTaskInDom(name, id, dueDate, priority, description) {
+  // Handle empty date entry
+  let formattedDate;
+  if (dueDate !== '') {
+    // to convert duDate form 'yyyy-MM-dd' format to 'MM-dd-yyyy' format
+    const date = parse(dueDate, 'yyyy-MM-dd', new Date());
+    formattedDate = format(date, 'MM-dd-yyyy');
+  } else {
+    formattedDate = 'No date';
+  }
+
   const taskContainer = document.createElement('div');
   taskContainer.classList.add('task');
   taskContainer.dataset.taskId = id;
@@ -408,7 +420,7 @@ function createTaskInDom(name, id, dueDate, priority, description) {
 
   const taskDate = document.createElement('p');
   taskDate.classList.add('task-due-date');
-  taskDate.textContent = `Date: ${dueDate}`;
+  taskDate.textContent = `Date: ${formattedDate}`;
 
   const taskPriority = document.createElement('p');
   taskPriority.classList.add('task-priority');
@@ -452,6 +464,49 @@ function createTaskInDom(name, id, dueDate, priority, description) {
   return taskContainer;
 }
 
+function getAllTasks() {
+  const inbox = getInbox();
+  const projectTasks = [];
+  const projects = getProjectList();
+  projects.forEach((project) => {
+    project.tasks.forEach((task) => {
+      projectTasks.push(task);
+    });
+  });
+
+  return [...inbox, ...projectTasks];
+}
+
+function getTodayTasks() {
+  const allTasks = getAllTasks();
+  const todayTasks = [];
+
+  const todayDate = new Date();
+  allTasks.forEach((task) => {
+    const taskDate = parseISO(task.dueDate);
+    if (isSameDay(taskDate, todayDate)) {
+      todayTasks.push(task);
+    }
+  });
+
+  return todayTasks;
+}
+
+function getWeekTasks() {
+  const allTasks = getAllTasks();
+  const weekTasks = [];
+
+  const currentWeekNumber = getISOWeek(new Date());
+  allTasks.forEach((task) => {
+    const taskWeekNumber = getISOWeek(new Date(task.dueDate));
+    if (currentWeekNumber === taskWeekNumber) {
+      weekTasks.push(task);
+    }
+  });
+
+  return weekTasks;
+}
+
 function renderTasks() {
   const tasksSection = document.querySelector('.projects-tasks-section');
   const sideBarOptionTitle =
@@ -464,6 +519,35 @@ function renderTasks() {
   if (sideBarOptionTitle === 'Inbox') {
     const inbox = getInbox();
     inbox.forEach((task) => {
+      const taskTodo = createTaskInDom(
+        task.title,
+        task.todoId,
+        task.dueDate,
+        task.priority,
+        task.description
+      );
+      tasksSection.appendChild(taskTodo);
+    });
+    return;
+  }
+  if (sideBarOptionTitle === 'Today') {
+    const todayTasks = getTodayTasks();
+    todayTasks.forEach((task) => {
+      const taskTodo = createTaskInDom(
+        task.title,
+        task.todoId,
+        task.dueDate,
+        task.priority,
+        task.description
+      );
+      tasksSection.appendChild(taskTodo);
+    });
+    return;
+  }
+
+  if (sideBarOptionTitle === 'This week') {
+    const weekTasks = getWeekTasks();
+    weekTasks.forEach((task) => {
       const taskTodo = createTaskInDom(
         task.title,
         task.todoId,
