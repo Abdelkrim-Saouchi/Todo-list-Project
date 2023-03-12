@@ -17,13 +17,6 @@ class TodosFactory {
     this.priority = priority;
     this.description = description;
   }
-
-  // setTodoTask(title, dueDate, priority, description) {
-  //   this.title = title;
-  //   this.dueDate = dueDate;
-  //   this.priority = priority;
-  //   this.description = description;
-  // }
 }
 
 export function setTodoTask(title, dueDate, priority, description) {
@@ -39,32 +32,11 @@ class ProjectFactory {
     this.id = id;
     this.tasks = [];
   }
-
-  // addTodoTask(title, todoId, dueDate, priority, description) {
-  //   const todo = new TodosFactory(
-  //     title,
-  //     todoId,
-  //     dueDate,
-  //     priority,
-  //     description
-  //   );
-  //   this.tasks.push(todo);
-  // }
-
-  // addToProjectList(list) {
-  //   if (!list.some((project) => project.title === this.title)) {
-  //     list.push(this);
-  //   }
-  // }
-
-  // deleteFromProjectList(list) {
-  //   list.splice(list.indexOf(this), 1);
-  // }
 }
 
-function addTask(obj, title, todoId, dueDate, priority, description) {
+function addTask(title, todoId, dueDate, priority, description) {
   const todo = new TodosFactory(title, todoId, dueDate, priority, description);
-  obj.tasks.push(todo);
+  this.tasks.push(todo);
 }
 
 export function updateLocalStorage(key, value) {
@@ -87,7 +59,6 @@ export function deleteProjectFromProjectsList(projectId) {
 }
 
 export function getProjectList() {
-  // const projects = JSON.parse(localStorage.getItem('projects-list'));
   return projectsList;
 }
 
@@ -114,12 +85,6 @@ export function addTaskToInbox(
 
 export function addTodoTask(project, title, dueDate, priority, description) {
   // eslint-disable-next-line no-param-reassign
-  addTask(
-    project,
-    title,
-    Date.now().toString(),
-    dueDate,
-    priority,
-    description
-  );
+  project.addTask = addTask;
+  project.addTask(title, Date.now().toString(), dueDate, priority, description);
 }

@@ -9758,13 +9758,6 @@ class TodosFactory {
     this.priority = priority;
     this.description = description;
   }
-
-  // setTodoTask(title, dueDate, priority, description) {
-  //   this.title = title;
-  //   this.dueDate = dueDate;
-  //   this.priority = priority;
-  //   this.description = description;
-  // }
 }
 
 function setTodoTask(title, dueDate, priority, description) {
@@ -9780,32 +9773,11 @@ class ProjectFactory {
     this.id = id;
     this.tasks = [];
   }
-
-  // addTodoTask(title, todoId, dueDate, priority, description) {
-  //   const todo = new TodosFactory(
-  //     title,
-  //     todoId,
-  //     dueDate,
-  //     priority,
-  //     description
-  //   );
-  //   this.tasks.push(todo);
-  // }
-
-  // addToProjectList(list) {
-  //   if (!list.some((project) => project.title === this.title)) {
-  //     list.push(this);
-  //   }
-  // }
-
-  // deleteFromProjectList(list) {
-  //   list.splice(list.indexOf(this), 1);
-  // }
 }
 
-function addTask(obj, title, todoId, dueDate, priority, description) {
+function addTask(title, todoId, dueDate, priority, description) {
   const todo = new TodosFactory(title, todoId, dueDate, priority, description);
-  obj.tasks.push(todo);
+  this.tasks.push(todo);
 }
 
 function updateLocalStorage(key, value) {
@@ -9828,7 +9800,6 @@ function deleteProjectFromProjectsList(projectId) {
 }
 
 function getProjectList() {
-  // const projects = JSON.parse(localStorage.getItem('projects-list'));
   return projectsList;
 }
 
@@ -9855,14 +9826,8 @@ function addTaskToInbox(
 
 function addTodoTask(project, title, dueDate, priority, description) {
   // eslint-disable-next-line no-param-reassign
-  addTask(
-    project,
-    title,
-    Date.now().toString(),
-    dueDate,
-    priority,
-    description
-  );
+  project.addTask = addTask;
+  project.addTask(title, Date.now().toString(), dueDate, priority, description);
 }
 
 
@@ -10023,4 +9988,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlee6c3c2a475e38785f6a3.js.map
+//# sourceMappingURL=bundle776aefd57ef8810ef892.js.map
