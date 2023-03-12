@@ -1,6 +1,11 @@
 /* eslint-disable max-classes-per-file */
-const projectsList = [];
+if (!localStorage.getItem('projects-list')) {
+  localStorage.setItem('projects-list', JSON.stringify([]));
+}
+const projectsList = JSON.parse(localStorage.getItem('projects-list'));
+
 const inbox = [];
+
 class TodosFactory {
   constructor(title, todoId, dueDate, priority, description) {
     this.title = title;
@@ -10,12 +15,19 @@ class TodosFactory {
     this.description = description;
   }
 
-  setTodoTask(title, dueDate, priority, description) {
-    this.title = title;
-    this.dueDate = dueDate;
-    this.priority = priority;
-    this.description = description;
-  }
+  // setTodoTask(title, dueDate, priority, description) {
+  //   this.title = title;
+  //   this.dueDate = dueDate;
+  //   this.priority = priority;
+  //   this.description = description;
+  // }
+}
+
+export function setTodoTask(title, dueDate, priority, description) {
+  this.title = title;
+  this.dueDate = dueDate;
+  this.priority = priority;
+  this.description = description;
 }
 
 class ProjectFactory {
@@ -25,16 +37,16 @@ class ProjectFactory {
     this.tasks = [];
   }
 
-  addTodoTask(title, todoId, dueDate, priority, description) {
-    const todo = new TodosFactory(
-      title,
-      todoId,
-      dueDate,
-      priority,
-      description
-    );
-    this.tasks.push(todo);
-  }
+  // addTodoTask(title, todoId, dueDate, priority, description) {
+  //   const todo = new TodosFactory(
+  //     title,
+  //     todoId,
+  //     dueDate,
+  //     priority,
+  //     description
+  //   );
+  //   this.tasks.push(todo);
+  // }
 
   // addToProjectList(list) {
   //   if (!list.some((project) => project.title === this.title)) {
@@ -47,24 +59,33 @@ class ProjectFactory {
   // }
 }
 
+function addTask(obj, title, todoId, dueDate, priority, description) {
+  const todo = new TodosFactory(title, todoId, dueDate, priority, description);
+  obj.tasks.push(todo);
+}
+
+export function updateLocalStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
 export default function addProjectToProjectsList(title) {
   const project = new ProjectFactory(title, Date.now().toString());
-  console.log('project created');
   projectsList.push(project);
-  console.log(projectsList);
+  updateLocalStorage('projects-list', projectsList);
 }
 
 export function deleteProjectFromProjectsList(projectId) {
   projectsList.forEach((project) => {
     if (project.id === projectId) {
       projectsList.splice(projectsList.indexOf(project), 1);
-      console.log(projectsList);
     }
+    updateLocalStorage('projects-list', projectsList);
   });
 }
 
 export function getProjectList() {
-  return projectsList;
+  const projects = JSON.parse(localStorage.getItem('projects-list'));
+  return projects;
 }
 
 export function getInbox() {
@@ -89,11 +110,14 @@ export function addTaskToInbox(
 }
 
 export function addTodoTask(project, title, dueDate, priority, description) {
-  project.addTodoTask(
+  // eslint-disable-next-line no-param-reassign
+  addTask(
+    project,
     title,
     Date.now().toString(),
     dueDate,
     priority,
     description
   );
+  updateLocalStorage('projects-list', projectsList);
 }

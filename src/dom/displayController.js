@@ -5,6 +5,8 @@ import addProjectToProjectsList, {
   deleteProjectFromProjectsList,
   getInbox,
   getProjectList,
+  setTodoTask,
+  updateLocalStorage,
 } from '../logic/logicController';
 import projectImg from '../assets/project-img.svg';
 import removeImg from '../assets/close-small-svgrepo-com.svg';
@@ -283,6 +285,7 @@ function addTask() {
       addTodoTask(project, taskTitle, taskDate, taskPriority, taskDesc);
     }
   });
+  updateLocalStorage('projects-list', projectsList);
 }
 
 function deleteTask(target) {
@@ -310,6 +313,7 @@ function deleteTask(target) {
       });
     }
   });
+  updateLocalStorage('projects-list', projects);
 }
 
 function getTaskData(listType, taskId) {
@@ -387,6 +391,8 @@ function updateTask(target) {
     const inbox = getInbox();
     inbox.forEach((task) => {
       if (task.id === targetTaskId) {
+        // eslint-disable-next-line no-param-reassign
+        task.setTodoTask = setTodoTask;
         task.setTodoTask(taskTitle, taskDueDate, taskPriority, taskDesc);
       }
     });
@@ -395,10 +401,13 @@ function updateTask(target) {
   projects.forEach((project) => {
     project.tasks.forEach((task) => {
       if (task.id === targetTaskId) {
+        // eslint-disable-next-line no-param-reassign
+        task.setTodoTask = setTodoTask;
         task.setTodoTask(taskTitle, taskDueDate, taskPriority, taskDesc);
       }
     });
   });
+  updateLocalStorage('projects-list', projects);
 }
 
 function createTaskInDom(name, id, dueDate, priority, description) {
@@ -688,6 +697,8 @@ function globalEventsHandler() {
       changeDisplay('.update-task-modal', 'none');
     }
   });
+  renderProjects();
+  renderTasks();
 }
 
 export default function displayController() {

@@ -9298,6 +9298,7 @@ function addTask() {
       (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.addTodoTask)(project, taskTitle, taskDate, taskPriority, taskDesc);
     }
   });
+  (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.updateLocalStorage)('projects-list', projectsList);
 }
 
 function deleteTask(target) {
@@ -9325,6 +9326,7 @@ function deleteTask(target) {
       });
     }
   });
+  (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.updateLocalStorage)('projects-list', projects);
 }
 
 function getTaskData(listType, taskId) {
@@ -9402,6 +9404,8 @@ function updateTask(target) {
     const inbox = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)();
     inbox.forEach((task) => {
       if (task.id === targetTaskId) {
+        // eslint-disable-next-line no-param-reassign
+        task.setTodoTask = _logic_logicController__WEBPACK_IMPORTED_MODULE_0__.setTodoTask;
         task.setTodoTask(taskTitle, taskDueDate, taskPriority, taskDesc);
       }
     });
@@ -9410,10 +9414,13 @@ function updateTask(target) {
   projects.forEach((project) => {
     project.tasks.forEach((task) => {
       if (task.id === targetTaskId) {
+        // eslint-disable-next-line no-param-reassign
+        task.setTodoTask = _logic_logicController__WEBPACK_IMPORTED_MODULE_0__.setTodoTask;
         task.setTodoTask(taskTitle, taskDueDate, taskPriority, taskDesc);
       }
     });
   });
+  (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.updateLocalStorage)('projects-list', projects);
 }
 
 function createTaskInDom(name, id, dueDate, priority, description) {
@@ -9703,6 +9710,8 @@ function globalEventsHandler() {
       changeDisplay('.update-task-modal', 'none');
     }
   });
+  renderProjects();
+  renderTasks();
 }
 
 function displayController() {
@@ -9725,11 +9734,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ addProjectToProjectsList),
 /* harmony export */   "deleteProjectFromProjectsList": () => (/* binding */ deleteProjectFromProjectsList),
 /* harmony export */   "getInbox": () => (/* binding */ getInbox),
-/* harmony export */   "getProjectList": () => (/* binding */ getProjectList)
+/* harmony export */   "getProjectList": () => (/* binding */ getProjectList),
+/* harmony export */   "setTodoTask": () => (/* binding */ setTodoTask),
+/* harmony export */   "updateLocalStorage": () => (/* binding */ updateLocalStorage)
 /* harmony export */ });
 /* eslint-disable max-classes-per-file */
-const projectsList = [];
+if (!localStorage.getItem('projects-list')) {
+  localStorage.setItem('projects-list', JSON.stringify([]));
+}
+const projectsList = JSON.parse(localStorage.getItem('projects-list'));
+
 const inbox = [];
+
 class TodosFactory {
   constructor(title, todoId, dueDate, priority, description) {
     this.title = title;
@@ -9739,12 +9755,19 @@ class TodosFactory {
     this.description = description;
   }
 
-  setTodoTask(title, dueDate, priority, description) {
-    this.title = title;
-    this.dueDate = dueDate;
-    this.priority = priority;
-    this.description = description;
-  }
+  // setTodoTask(title, dueDate, priority, description) {
+  //   this.title = title;
+  //   this.dueDate = dueDate;
+  //   this.priority = priority;
+  //   this.description = description;
+  // }
+}
+
+function setTodoTask(title, dueDate, priority, description) {
+  this.title = title;
+  this.dueDate = dueDate;
+  this.priority = priority;
+  this.description = description;
 }
 
 class ProjectFactory {
@@ -9754,16 +9777,16 @@ class ProjectFactory {
     this.tasks = [];
   }
 
-  addTodoTask(title, todoId, dueDate, priority, description) {
-    const todo = new TodosFactory(
-      title,
-      todoId,
-      dueDate,
-      priority,
-      description
-    );
-    this.tasks.push(todo);
-  }
+  // addTodoTask(title, todoId, dueDate, priority, description) {
+  //   const todo = new TodosFactory(
+  //     title,
+  //     todoId,
+  //     dueDate,
+  //     priority,
+  //     description
+  //   );
+  //   this.tasks.push(todo);
+  // }
 
   // addToProjectList(list) {
   //   if (!list.some((project) => project.title === this.title)) {
@@ -9776,24 +9799,33 @@ class ProjectFactory {
   // }
 }
 
+function addTask(obj, title, todoId, dueDate, priority, description) {
+  const todo = new TodosFactory(title, todoId, dueDate, priority, description);
+  obj.tasks.push(todo);
+}
+
+function updateLocalStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
 function addProjectToProjectsList(title) {
   const project = new ProjectFactory(title, Date.now().toString());
-  console.log('project created');
   projectsList.push(project);
-  console.log(projectsList);
+  updateLocalStorage('projects-list', projectsList);
 }
 
 function deleteProjectFromProjectsList(projectId) {
   projectsList.forEach((project) => {
     if (project.id === projectId) {
       projectsList.splice(projectsList.indexOf(project), 1);
-      console.log(projectsList);
     }
+    updateLocalStorage('projects-list', projectsList);
   });
 }
 
 function getProjectList() {
-  return projectsList;
+  const projects = JSON.parse(localStorage.getItem('projects-list'));
+  return projects;
 }
 
 function getInbox() {
@@ -9818,13 +9850,16 @@ function addTaskToInbox(
 }
 
 function addTodoTask(project, title, dueDate, priority, description) {
-  project.addTodoTask(
+  // eslint-disable-next-line no-param-reassign
+  addTask(
+    project,
     title,
     Date.now().toString(),
     dueDate,
     priority,
     description
   );
+  updateLocalStorage('projects-list', projectsList);
 }
 
 
@@ -9985,4 +10020,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle39ad1e13e3c1b97db35c.js.map
+//# sourceMappingURL=bundle646fb6cce62f3e6b7ba6.js.map
