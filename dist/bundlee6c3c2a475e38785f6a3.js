@@ -9291,6 +9291,7 @@ function addTask() {
   ) {
     const inbox = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)();
     (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.addTaskToInbox)(inbox, taskTitle, taskDate, taskPriority, taskDesc);
+    (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.updateLocalStorage)('inbox', inbox);
     return;
   }
   projectsList.forEach((project) => {
@@ -9744,7 +9745,10 @@ if (!localStorage.getItem('projects-list')) {
 }
 const projectsList = JSON.parse(localStorage.getItem('projects-list'));
 
-const inbox = [];
+if (!localStorage.getItem('inbox')) {
+  localStorage.setItem('inbox', JSON.stringify([]));
+}
+const inbox = JSON.parse(localStorage.getItem('inbox'));
 
 class TodosFactory {
   constructor(title, todoId, dueDate, priority, description) {
@@ -9824,8 +9828,8 @@ function deleteProjectFromProjectsList(projectId) {
 }
 
 function getProjectList() {
-  const projects = JSON.parse(localStorage.getItem('projects-list'));
-  return projects;
+  // const projects = JSON.parse(localStorage.getItem('projects-list'));
+  return projectsList;
 }
 
 function getInbox() {
@@ -9859,7 +9863,6 @@ function addTodoTask(project, title, dueDate, priority, description) {
     priority,
     description
   );
-  updateLocalStorage('projects-list', projectsList);
 }
 
 
@@ -10020,4 +10023,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle646fb6cce62f3e6b7ba6.js.map
+//# sourceMappingURL=bundlee6c3c2a475e38785f6a3.js.map

@@ -278,6 +278,7 @@ function addTask() {
   ) {
     const inbox = getInbox();
     addTaskToInbox(inbox, taskTitle, taskDate, taskPriority, taskDesc);
+    updateLocalStorage('inbox', inbox);
     return;
   }
   projectsList.forEach((project) => {

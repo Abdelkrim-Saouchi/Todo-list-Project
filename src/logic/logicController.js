@@ -4,7 +4,10 @@ if (!localStorage.getItem('projects-list')) {
 }
 const projectsList = JSON.parse(localStorage.getItem('projects-list'));
 
-const inbox = [];
+if (!localStorage.getItem('inbox')) {
+  localStorage.setItem('inbox', JSON.stringify([]));
+}
+const inbox = JSON.parse(localStorage.getItem('inbox'));
 
 class TodosFactory {
   constructor(title, todoId, dueDate, priority, description) {
@@ -84,8 +87,8 @@ export function deleteProjectFromProjectsList(projectId) {
 }
 
 export function getProjectList() {
-  const projects = JSON.parse(localStorage.getItem('projects-list'));
-  return projects;
+  // const projects = JSON.parse(localStorage.getItem('projects-list'));
+  return projectsList;
 }
 
 export function getInbox() {
@@ -119,5 +122,4 @@ export function addTodoTask(project, title, dueDate, priority, description) {
     priority,
     description
   );
-  updateLocalStorage('projects-list', projectsList);
 }
