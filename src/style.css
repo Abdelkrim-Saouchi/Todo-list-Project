@@ -149,6 +149,10 @@ footer {
   color: var(--Accent-color);
 }
 
+footer a {
+  color: inherit;
+}
+
 .modal,
 .task-modal,
 .update-task-modal {
