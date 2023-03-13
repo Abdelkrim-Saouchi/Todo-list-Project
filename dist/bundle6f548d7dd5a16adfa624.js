@@ -9010,15 +9010,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ displayController)
 /* harmony export */ });
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parse/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parseISO/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/isSameDay/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/getISOWeek/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parse/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parseISO/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/isSameDay/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/getISOWeek/index.js");
 /* harmony import */ var _logic_logicController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../logic/logicController */ "./src/logic/logicController.js");
 /* harmony import */ var _assets_project_img_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/project-img.svg */ "./src/assets/project-img.svg");
 /* harmony import */ var _assets_close_small_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/close-small-svgrepo-com.svg */ "./src/assets/close-small-svgrepo-com.svg");
 /* harmony import */ var _assets_setting_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/setting-svgrepo-com.svg */ "./src/assets/setting-svgrepo-com.svg");
+/* harmony import */ var _assets_task_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/task-svgrepo-com.svg */ "./src/assets/task-svgrepo-com.svg");
+
 
 
 
@@ -9405,7 +9407,7 @@ function updateTask(target) {
   if (sectionTitle === 'Inbox') {
     const inbox = (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.getInbox)();
     inbox.forEach((task) => {
-      if (task.id === targetTaskId) {
+      if (task.todoId === targetTaskId) {
         // eslint-disable-next-line no-param-reassign
         task.setTodoTask = _logic_logicController__WEBPACK_IMPORTED_MODULE_0__.setTodoTask;
         task.setTodoTask(taskTitle, taskDueDate, taskPriority, taskDesc);
@@ -9416,7 +9418,7 @@ function updateTask(target) {
   }
   projects.forEach((project) => {
     project.tasks.forEach((task) => {
-      if (task.id === targetTaskId) {
+      if (task.todoId === targetTaskId) {
         // eslint-disable-next-line no-param-reassign
         task.setTodoTask = _logic_logicController__WEBPACK_IMPORTED_MODULE_0__.setTodoTask;
         task.setTodoTask(taskTitle, taskDueDate, taskPriority, taskDesc);
@@ -9431,8 +9433,8 @@ function createTaskInDom(name, id, dueDate, priority, description) {
   let formattedDate;
   if (dueDate !== '') {
     // to convert duDate form 'yyyy-MM-dd' format to 'MM-dd-yyyy' format
-    const date = (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(dueDate, 'yyyy-MM-dd', new Date());
-    formattedDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_5__["default"])(date, 'MM-dd-yyyy');
+    const date = (0,date_fns__WEBPACK_IMPORTED_MODULE_5__["default"])(dueDate, 'yyyy-MM-dd', new Date());
+    formattedDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_6__["default"])(date, 'MM-dd-yyyy');
   } else {
     formattedDate = 'No date';
   }
@@ -9443,6 +9445,9 @@ function createTaskInDom(name, id, dueDate, priority, description) {
 
   const taskHeader = document.createElement('div');
   taskHeader.classList.add('task-header');
+
+  const taskIcon = document.createElement('img');
+  taskIcon.src = _assets_task_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__;
 
   const taskTitle = document.createElement('h3');
   taskTitle.textContent = name;
@@ -9459,7 +9464,13 @@ function createTaskInDom(name, id, dueDate, priority, description) {
   taskSettingIcon.src = _assets_setting_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__;
   taskSettingIcon.classList.add('setting-icon');
 
-  taskHeader.append(taskTitle, taskDate, taskPriority, taskSettingIcon);
+  taskHeader.append(
+    taskIcon,
+    taskTitle,
+    taskDate,
+    taskPriority,
+    taskSettingIcon
+  );
 
   const taskDetails = document.createElement('div');
   taskDetails.classList.add('task-details');
@@ -9512,8 +9523,8 @@ function getTodayTasks() {
 
   const todayDate = new Date();
   allTasks.forEach((task) => {
-    const taskDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_6__["default"])(task.dueDate);
-    if ((0,date_fns__WEBPACK_IMPORTED_MODULE_7__["default"])(taskDate, todayDate)) {
+    const taskDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_7__["default"])(task.dueDate);
+    if ((0,date_fns__WEBPACK_IMPORTED_MODULE_8__["default"])(taskDate, todayDate)) {
       todayTasks.push(task);
     }
   });
@@ -9525,9 +9536,9 @@ function getWeekTasks() {
   const allTasks = getAllTasks();
   const weekTasks = [];
 
-  const currentWeekNumber = (0,date_fns__WEBPACK_IMPORTED_MODULE_8__["default"])(new Date());
+  const currentWeekNumber = (0,date_fns__WEBPACK_IMPORTED_MODULE_9__["default"])(new Date());
   allTasks.forEach((task) => {
-    const taskWeekNumber = (0,date_fns__WEBPACK_IMPORTED_MODULE_8__["default"])(new Date(task.dueDate));
+    const taskWeekNumber = (0,date_fns__WEBPACK_IMPORTED_MODULE_9__["default"])(new Date(task.dueDate));
     if (currentWeekNumber === taskWeekNumber) {
       weekTasks.push(task);
     }
@@ -9622,7 +9633,6 @@ function updatePriorityBg() {
   const prioritiesList = Array.from(priorities);
   prioritiesList.forEach((priority) => {
     const text = priority.textContent.slice(10);
-    console.log(text);
     priority.classList.remove('top');
     priority.classList.remove('medium');
     priority.classList.remove('low');
@@ -9726,17 +9736,19 @@ function globalEventsHandler() {
     if (e.target.matches('.edit-task-btn')) {
       displayUpdateTaskModal();
       fillUpdateTaskModal(e.target);
+
+      // Handle update edit task button
+      const updateBtn = document.querySelector('#update-task-btn');
+      updateBtn.addEventListener('click', () => {
+        updateTask(e.target);
+        renderTasks();
+        changeDisplay('.update-task-modal', 'none');
+        updatePriorityBg();
+      });
     }
     // Handle cancel edit task button
     if (e.target.matches('#cancel-update-task-btn')) {
       cancelAdding('.update-task-modal');
-    }
-    // Handle update edit task button
-    if (e.target.matches('#update-task-btn')) {
-      updateTask(e.target);
-      renderTasks();
-      changeDisplay('.update-task-modal', 'none');
-      updatePriorityBg();
     }
   });
   renderProjects();
@@ -9856,7 +9868,17 @@ function addTaskToInbox(
 function addTodoTask(project, title, dueDate, priority, description) {
   // eslint-disable-next-line no-param-reassign
   project.addTask = addTask;
-  project.addTask(title, Date.now().toString(), dueDate, priority, description);
+  // Add project name to todo task
+  const projName = `(${project.title})`;
+  const titlePlusProjName = `${title} ${projName}`;
+
+  project.addTask(
+    titlePlusProjName,
+    Date.now().toString(),
+    dueDate,
+    priority,
+    description
+  );
 }
 
 
@@ -9889,6 +9911,16 @@ module.exports = __webpack_require__.p + "project-img.svg";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "setting-svgrepo-com.svg";
+
+/***/ }),
+
+/***/ "./src/assets/task-svgrepo-com.svg":
+/*!*****************************************!*\
+  !*** ./src/assets/task-svgrepo-com.svg ***!
+  \*****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "task-svgrepo-com.svg";
 
 /***/ })
 
@@ -10017,4 +10049,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle34b1eedee1dbcf33dc42.js.map
+//# sourceMappingURL=bundle6f548d7dd5a16adfa624.js.map

@@ -11,6 +11,7 @@ import addProjectToProjectsList, {
 import projectImg from '../assets/project-img.svg';
 import removeImg from '../assets/close-small-svgrepo-com.svg';
 import settingImg from '../assets/setting-svgrepo-com.svg';
+import taskImg from '../assets/task-svgrepo-com.svg';
 
 const projectsDiv = document.querySelector('.projects-list');
 
@@ -392,7 +393,7 @@ function updateTask(target) {
   if (sectionTitle === 'Inbox') {
     const inbox = getInbox();
     inbox.forEach((task) => {
-      if (task.id === targetTaskId) {
+      if (task.todoId === targetTaskId) {
         // eslint-disable-next-line no-param-reassign
         task.setTodoTask = setTodoTask;
         task.setTodoTask(taskTitle, taskDueDate, taskPriority, taskDesc);
@@ -403,7 +404,7 @@ function updateTask(target) {
   }
   projects.forEach((project) => {
     project.tasks.forEach((task) => {
-      if (task.id === targetTaskId) {
+      if (task.todoId === targetTaskId) {
         // eslint-disable-next-line no-param-reassign
         task.setTodoTask = setTodoTask;
         task.setTodoTask(taskTitle, taskDueDate, taskPriority, taskDesc);
@@ -431,6 +432,9 @@ function createTaskInDom(name, id, dueDate, priority, description) {
   const taskHeader = document.createElement('div');
   taskHeader.classList.add('task-header');
 
+  const taskIcon = document.createElement('img');
+  taskIcon.src = taskImg;
+
   const taskTitle = document.createElement('h3');
   taskTitle.textContent = name;
 
@@ -446,7 +450,13 @@ function createTaskInDom(name, id, dueDate, priority, description) {
   taskSettingIcon.src = settingImg;
   taskSettingIcon.classList.add('setting-icon');
 
-  taskHeader.append(taskTitle, taskDate, taskPriority, taskSettingIcon);
+  taskHeader.append(
+    taskIcon,
+    taskTitle,
+    taskDate,
+    taskPriority,
+    taskSettingIcon
+  );
 
   const taskDetails = document.createElement('div');
   taskDetails.classList.add('task-details');
@@ -609,7 +619,6 @@ function updatePriorityBg() {
   const prioritiesList = Array.from(priorities);
   prioritiesList.forEach((priority) => {
     const text = priority.textContent.slice(10);
-    console.log(text);
     priority.classList.remove('top');
     priority.classList.remove('medium');
     priority.classList.remove('low');
@@ -713,17 +722,19 @@ function globalEventsHandler() {
     if (e.target.matches('.edit-task-btn')) {
       displayUpdateTaskModal();
       fillUpdateTaskModal(e.target);
+
+      // Handle update edit task button
+      const updateBtn = document.querySelector('#update-task-btn');
+      updateBtn.addEventListener('click', () => {
+        updateTask(e.target);
+        renderTasks();
+        changeDisplay('.update-task-modal', 'none');
+        updatePriorityBg();
+      });
     }
     // Handle cancel edit task button
     if (e.target.matches('#cancel-update-task-btn')) {
       cancelAdding('.update-task-modal');
-    }
-    // Handle update edit task button
-    if (e.target.matches('#update-task-btn')) {
-      updateTask(e.target);
-      renderTasks();
-      changeDisplay('.update-task-modal', 'none');
-      updatePriorityBg();
     }
   });
   renderProjects();

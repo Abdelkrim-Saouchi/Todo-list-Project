@@ -86,5 +86,15 @@ export function addTaskToInbox(
 export function addTodoTask(project, title, dueDate, priority, description) {
   // eslint-disable-next-line no-param-reassign
   project.addTask = addTask;
-  project.addTask(title, Date.now().toString(), dueDate, priority, description);
+  // Add project name to todo task
+  const projName = `(${project.title})`;
+  const titlePlusProjName = `${title} ${projName}`;
+
+  project.addTask(
+    titlePlusProjName,
+    Date.now().toString(),
+    dueDate,
+    priority,
+    description
+  );
 }
