@@ -1,10 +1,12 @@
 :root {
   --Base-color: #36b37e;
   --Accent-color: #ffc400;
-  --Background-color: #fbfbfb;
-  --Secondary-bg-color: hsl(0, 0%, 85%);
+  --Background-color: #f3f5f7;
+  --Secondary-bg-color: #ffffff;
   --Text-color: #333f50;
   --Secondary-text-color: #9b9b9b;
+  --add-btn-color: #2d4acd;
+  --add-btn-hover: hsl(229, 80%, 30%);
 
   --top-bottom-padding: 16px;
   --right-left-padding: 16px;
@@ -83,6 +85,16 @@ main .side-bar {
   background-color: var(--Secondary-bg-color);
 }
 
+.side-bar #add-project {
+  background-color: var(--add-btn-color);
+  color: var(--Secondary-bg-color);
+  font-weight: 600;
+}
+
+.side-bar #add-project:is(:hover, :focus) {
+  background-color: var(--add-btn-hover);
+}
+
 .wrapper h2 {
   font-size: 16px;
 }
@@ -114,22 +126,26 @@ main .main-content {
 }
 
 .container .add-task {
+  background-color: var(--add-btn-color);
+  color: var(--Background-color);
+  font-size: 14px;
   margin-block: 16px;
   display: flex;
+  align-items: center;
   gap: 10px;
   max-width: fit-content;
-  padding: 10px;
+  padding: 8px;
   border-radius: 12px;
   cursor: pointer;
 }
 
 .container .add-task:is(:hover, :focus) {
-  background-color: var(--Background-color);
+  background-color: var(--add-btn-hover);
 }
 
 .container .add-task img {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 }
 
 footer {
@@ -193,6 +209,13 @@ footer {
 
 /* task container styles */
 
+.task {
+  background-color: var(--Background-color);
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
 .task .task-header {
   display: flex;
   gap: 16px;
@@ -210,6 +233,13 @@ footer {
 .task-header h3,
 .task-header img {
   cursor: pointer;
+}
+
+.task-due-date {
+  background-color: var(--Accent-color);
+  color: var(--Secondary-bg-color);
+  padding: 3px;
+  border-radius: 8px;
 }
 
 .task .task-details {
@@ -237,16 +267,20 @@ footer {
   background-color: var(--Base-color);
   opacity: 0.7;
   color: var(--Background-color);
-  outline: 0;
+  font-weight: 600;
+  outline: transparent;
   border: 0;
+  border-radius: 8px;
 }
 
 .task-btns-container .remove-task-btn {
   background-color: rgb(218 0 0);
   opacity: 0.7;
   color: var(--Background-color);
-  outline: 0;
+  font-weight: 600;
+  outline: transparent;
   border: 0;
+  border-radius: 8px;
 }
 
 .edit-task-btn:is(:hover, :focus),
