@@ -9891,7 +9891,7 @@ function addTodoTask(project, title, dueDate, priority, description) {
   \************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "close-small-svgrepo-com.svg";
+module.exports = __webpack_require__.p + "3ce667baa549747242bc.svg";
 
 /***/ }),
 
@@ -9901,7 +9901,7 @@ module.exports = __webpack_require__.p + "close-small-svgrepo-com.svg";
   \************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "project-img.svg";
+module.exports = __webpack_require__.p + "c6e0a496e6621e857449.svg";
 
 /***/ }),
 
@@ -9911,7 +9911,7 @@ module.exports = __webpack_require__.p + "project-img.svg";
   \********************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "setting-svgrepo-com.svg";
+module.exports = __webpack_require__.p + "6845bb067eef7f102d5a.svg";
 
 /***/ }),
 
@@ -9921,7 +9921,7 @@ module.exports = __webpack_require__.p + "setting-svgrepo-com.svg";
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "task-svgrepo-com.svg";
+module.exports = __webpack_require__.p + "745a843e3adc9d1213f9.svg";
 
 /***/ })
 
@@ -10048,4 +10048,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle4f33159d65e828cc5e7e.js.map
+//# sourceMappingURL=bundle4181c54019ed53d94ad6.js.map
