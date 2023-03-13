@@ -7,6 +7,8 @@
   --Secondary-text-color: #9b9b9b;
   --add-btn-color: #2d4acd;
   --add-btn-hover: hsl(229, 80%, 30%);
+  --top-priority: #ef4040;
+  --medium-priority: #f08935;
 
   --top-bottom-padding: 16px;
   --right-left-padding: 16px;
@@ -238,8 +240,26 @@ footer {
 .task-due-date {
   background-color: var(--Accent-color);
   color: var(--Secondary-bg-color);
-  padding: 3px;
+  padding: 4px;
   border-radius: 8px;
+}
+
+.task-priority {
+  color: var(--Secondary-bg-color);
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.top {
+  background-color: var(--top-priority);
+}
+
+.medium {
+  background-color: var(--medium-priority);
+}
+
+.low {
+  background-color: var(--Base-color);
 }
 
 .task .task-details {

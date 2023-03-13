@@ -302,6 +302,7 @@ function deleteTask(target) {
         inbox.splice(inbox.indexOf(todoTask), 1);
       }
     });
+    updateLocalStorage('inbox', inbox);
     return;
   }
 
@@ -397,6 +398,7 @@ function updateTask(target) {
         task.setTodoTask(taskTitle, taskDueDate, taskPriority, taskDesc);
       }
     });
+    updateLocalStorage('inbox', inbox);
     return;
   }
   projects.forEach((project) => {
@@ -601,12 +603,30 @@ function renderTasks() {
   });
 }
 
+function updatePriorityBg() {
+  const priorities = document.querySelectorAll('.task-priority');
+  if (priorities == null) return;
+  const prioritiesList = Array.from(priorities);
+  prioritiesList.forEach((priority) => {
+    const text = priority.textContent.slice(10);
+    console.log(text);
+    priority.classList.remove('top');
+    priority.classList.remove('medium');
+    priority.classList.remove('low');
+
+    if (text === 'top') priority.classList.add('top');
+    else if (text === 'medium') priority.classList.add('medium');
+    else priority.classList.add('low');
+  });
+}
+
 function globalEventsHandler() {
   document.addEventListener('click', (e) => {
     // Manage active states and switches of inbox, today and this week
     if (e.target.matches('.plan-items .wrapper')) {
       switchSidebarOptions('.plan-items .wrapper, [data-project-id]', e.target);
       renderTasks();
+      updatePriorityBg();
     }
     if (e.target.matches('.plan-items .wrapper *')) {
       // added to make sure event will start if child element was pressed
@@ -615,6 +635,7 @@ function globalEventsHandler() {
         e.target.parentElement
       );
       renderTasks();
+      updatePriorityBg();
     }
     // Handle add projects button events
     if (
@@ -643,11 +664,13 @@ function globalEventsHandler() {
       renderProjects();
       resetActiveSate();
       renderTasks();
+      updatePriorityBg();
     }
     // Manage active states changes of projects
     if (e.target.matches('[data-project-id]')) {
       switchSidebarOptions('.plan-items .wrapper, [data-project-id]', e.target);
       renderTasks();
+      updatePriorityBg();
     }
     if (e.target.matches('[data-project-id] .project-icon, h3')) {
       // added to make sure event will start if child element was pressed,
@@ -657,11 +680,13 @@ function globalEventsHandler() {
         e.target.parentElement
       );
       renderTasks();
+      updatePriorityBg();
     }
     // Handle Add task button's events
     if (e.target.matches('.add-task, .add-task *')) {
       displayTaskModal();
       resetModalInputs('.task-modal');
+      // updatePriorityBg();
     }
     // Handle cancel adding task event
     if (e.target.matches('#cancel-task-btn')) {
@@ -672,6 +697,7 @@ function globalEventsHandler() {
       addTask();
       renderTasks();
       changeDisplay('.task-modal', 'none');
+      updatePriorityBg();
     }
     // Handle task's setting icon event
     if (e.target.matches('.setting-icon')) {
@@ -681,6 +707,7 @@ function globalEventsHandler() {
     if (e.target.matches('.remove-task-btn')) {
       deleteTask(e.target);
       renderTasks();
+      updatePriorityBg();
     }
     // Handle edit task button
     if (e.target.matches('.edit-task-btn')) {
@@ -696,10 +723,12 @@ function globalEventsHandler() {
       updateTask(e.target);
       renderTasks();
       changeDisplay('.update-task-modal', 'none');
+      updatePriorityBg();
     }
   });
   renderProjects();
   renderTasks();
+  updatePriorityBg();
 }
 
 export default function displayController() {
