@@ -737,6 +737,7 @@ function globalEventsHandler() {
       cancelAdding('.update-task-modal');
     }
   });
+  // When page load
   renderProjects();
   renderTasks();
   updatePriorityBg();
