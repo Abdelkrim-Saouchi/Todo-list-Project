@@ -1,22 +1,26 @@
-/* eslint-disable max-classes-per-file */
-if (!localStorage.getItem('projects-list')) {
-  localStorage.setItem('projects-list', JSON.stringify([]));
-}
-const projectsList = JSON.parse(localStorage.getItem('projects-list'));
+import TodosFactory from './todosFactory';
+import ProjectFactory from './projectFactory';
 
-if (!localStorage.getItem('inbox')) {
-  localStorage.setItem('inbox', JSON.stringify([]));
-}
-const inbox = JSON.parse(localStorage.getItem('inbox'));
+// get Data from localStorage
+const getDataFromLocalStorage = (key) => {
+  const data = JSON.parse(localStorage.getItem(key));
+  return data || [];
+};
 
-class TodosFactory {
-  constructor(title, todoId, dueDate, priority, description) {
-    this.title = title;
-    this.todoId = todoId;
-    this.dueDate = dueDate;
-    this.priority = priority;
-    this.description = description;
-  }
+const projectsList = getDataFromLocalStorage('projects-list');
+const inbox = getDataFromLocalStorage('inbox');
+
+// LocalStorage functions
+export const updateLocalStorage = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
+
+// tasks functions
+export const getInbox = () => inbox;
+
+function addTask(title, todoId, dueDate, priority, description) {
+  const todo = new TodosFactory(title, todoId, dueDate, priority, description);
+  this.tasks.push(todo);
 }
 
 export function setTodoTask(title, dueDate, priority, description) {
@@ -26,53 +30,13 @@ export function setTodoTask(title, dueDate, priority, description) {
   this.description = description;
 }
 
-class ProjectFactory {
-  constructor(title, id) {
-    this.title = title;
-    this.id = id;
-    this.tasks = [];
-  }
-}
-
-function addTask(title, todoId, dueDate, priority, description) {
-  const todo = new TodosFactory(title, todoId, dueDate, priority, description);
-  this.tasks.push(todo);
-}
-
-export function updateLocalStorage(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
-}
-
-export default function addProjectToProjectsList(title) {
-  const project = new ProjectFactory(title, Date.now().toString());
-  projectsList.push(project);
-  updateLocalStorage('projects-list', projectsList);
-}
-
-export function deleteProjectFromProjectsList(projectId) {
-  projectsList.forEach((project) => {
-    if (project.id === projectId) {
-      projectsList.splice(projectsList.indexOf(project), 1);
-    }
-    updateLocalStorage('projects-list', projectsList);
-  });
-}
-
-export function getProjectList() {
-  return projectsList;
-}
-
-export function getInbox() {
-  return inbox;
-}
-
-export function addTaskToInbox(
+export const addTaskToInbox = (
   inboxList,
   taskName,
   dueDate,
   priority,
   description
-) {
+) => {
   const task = new TodosFactory(
     taskName,
     Date.now().toString(),
@@ -81,15 +45,34 @@ export function addTaskToInbox(
     description
   );
   inboxList.push(task);
-}
+};
 
-export function addTodoTask(project, title, dueDate, priority, description) {
+// Projects functions
+export const getProjectList = () => projectsList;
+
+export const addProjectToProjectsList = (title) => {
+  const project = new ProjectFactory(title, Date.now().toString());
+  projectsList.push(project);
+  updateLocalStorage('projects-list', projectsList);
+};
+
+export const deleteProjectFromProjectsList = (projectId) => {
+  projectsList.forEach((project) => {
+    if (project.id === projectId) {
+      projectsList.splice(projectsList.indexOf(project), 1);
+    }
+  });
+  updateLocalStorage('projects-list', projectsList);
+};
+
+export const addTodoTask = (project, title, dueDate, priority, description) => {
   // eslint-disable-next-line no-param-reassign
   project.addTask = addTask;
   // Add project name to todo task
   const projName = `(${project.title})`;
   const titlePlusProjName = `${title} ${projName}`;
 
+  // add task to specific project
   project.addTask(
     titlePlusProjName,
     Date.now().toString(),
@@ -97,4 +80,4 @@ export function addTodoTask(project, title, dueDate, priority, description) {
     priority,
     description
   );
-}
+};

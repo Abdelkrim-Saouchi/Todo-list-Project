@@ -9204,7 +9204,7 @@ function cancelAdding(selector) {
 function addProject() {
   const projectName = document.querySelector('.modal input').value;
   if (projectName != null && projectName !== '') {
-    (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__["default"])(projectName);
+    (0,_logic_logicController__WEBPACK_IMPORTED_MODULE_0__.addProjectToProjectsList)(projectName);
   }
 }
 
@@ -9772,34 +9772,40 @@ function displayController() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addProjectToProjectsList": () => (/* binding */ addProjectToProjectsList),
 /* harmony export */   "addTaskToInbox": () => (/* binding */ addTaskToInbox),
 /* harmony export */   "addTodoTask": () => (/* binding */ addTodoTask),
-/* harmony export */   "default": () => (/* binding */ addProjectToProjectsList),
 /* harmony export */   "deleteProjectFromProjectsList": () => (/* binding */ deleteProjectFromProjectsList),
 /* harmony export */   "getInbox": () => (/* binding */ getInbox),
 /* harmony export */   "getProjectList": () => (/* binding */ getProjectList),
 /* harmony export */   "setTodoTask": () => (/* binding */ setTodoTask),
 /* harmony export */   "updateLocalStorage": () => (/* binding */ updateLocalStorage)
 /* harmony export */ });
-/* eslint-disable max-classes-per-file */
-if (!localStorage.getItem('projects-list')) {
-  localStorage.setItem('projects-list', JSON.stringify([]));
-}
-const projectsList = JSON.parse(localStorage.getItem('projects-list'));
+/* harmony import */ var _todosFactory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todosFactory */ "./src/logic/todosFactory.js");
+/* harmony import */ var _projectFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projectFactory */ "./src/logic/projectFactory.js");
 
-if (!localStorage.getItem('inbox')) {
-  localStorage.setItem('inbox', JSON.stringify([]));
-}
-const inbox = JSON.parse(localStorage.getItem('inbox'));
 
-class TodosFactory {
-  constructor(title, todoId, dueDate, priority, description) {
-    this.title = title;
-    this.todoId = todoId;
-    this.dueDate = dueDate;
-    this.priority = priority;
-    this.description = description;
-  }
+
+// get Data from localStorage
+const getDataFromLocalStorage = (key) => {
+  const data = JSON.parse(localStorage.getItem(key));
+  return data || [];
+};
+
+const projectsList = getDataFromLocalStorage('projects-list');
+const inbox = getDataFromLocalStorage('inbox');
+
+// LocalStorage functions
+const updateLocalStorage = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
+
+// tasks functions
+const getInbox = () => inbox;
+
+function addTask(title, todoId, dueDate, priority, description) {
+  const todo = new _todosFactory__WEBPACK_IMPORTED_MODULE_0__["default"](title, todoId, dueDate, priority, description);
+  this.tasks.push(todo);
 }
 
 function setTodoTask(title, dueDate, priority, description) {
@@ -9809,54 +9815,14 @@ function setTodoTask(title, dueDate, priority, description) {
   this.description = description;
 }
 
-class ProjectFactory {
-  constructor(title, id) {
-    this.title = title;
-    this.id = id;
-    this.tasks = [];
-  }
-}
-
-function addTask(title, todoId, dueDate, priority, description) {
-  const todo = new TodosFactory(title, todoId, dueDate, priority, description);
-  this.tasks.push(todo);
-}
-
-function updateLocalStorage(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
-}
-
-function addProjectToProjectsList(title) {
-  const project = new ProjectFactory(title, Date.now().toString());
-  projectsList.push(project);
-  updateLocalStorage('projects-list', projectsList);
-}
-
-function deleteProjectFromProjectsList(projectId) {
-  projectsList.forEach((project) => {
-    if (project.id === projectId) {
-      projectsList.splice(projectsList.indexOf(project), 1);
-    }
-    updateLocalStorage('projects-list', projectsList);
-  });
-}
-
-function getProjectList() {
-  return projectsList;
-}
-
-function getInbox() {
-  return inbox;
-}
-
-function addTaskToInbox(
+const addTaskToInbox = (
   inboxList,
   taskName,
   dueDate,
   priority,
   description
-) {
-  const task = new TodosFactory(
+) => {
+  const task = new _todosFactory__WEBPACK_IMPORTED_MODULE_0__["default"](
     taskName,
     Date.now().toString(),
     dueDate,
@@ -9864,9 +9830,27 @@ function addTaskToInbox(
     description
   );
   inboxList.push(task);
-}
+};
 
-function addTodoTask(project, title, dueDate, priority, description) {
+// Projects functions
+const getProjectList = () => projectsList;
+
+const addProjectToProjectsList = (title) => {
+  const project = new _projectFactory__WEBPACK_IMPORTED_MODULE_1__["default"](title, Date.now().toString());
+  projectsList.push(project);
+  updateLocalStorage('projects-list', projectsList);
+};
+
+const deleteProjectFromProjectsList = (projectId) => {
+  projectsList.forEach((project) => {
+    if (project.id === projectId) {
+      projectsList.splice(projectsList.indexOf(project), 1);
+    }
+  });
+  updateLocalStorage('projects-list', projectsList);
+};
+
+const addTodoTask = (project, title, dueDate, priority, description) => {
   // eslint-disable-next-line no-param-reassign
   project.addTask = addTask;
   // Add project name to todo task
@@ -9880,6 +9864,50 @@ function addTodoTask(project, title, dueDate, priority, description) {
     priority,
     description
   );
+};
+
+
+/***/ }),
+
+/***/ "./src/logic/projectFactory.js":
+/*!*************************************!*\
+  !*** ./src/logic/projectFactory.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ProjectFactory)
+/* harmony export */ });
+class ProjectFactory {
+  constructor(title, id) {
+    this.title = title;
+    this.id = id;
+    this.tasks = [];
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/logic/todosFactory.js":
+/*!***********************************!*\
+  !*** ./src/logic/todosFactory.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TodosFactory)
+/* harmony export */ });
+class TodosFactory {
+  constructor(title, todoId, dueDate, priority, description) {
+    this.title = title;
+    this.todoId = todoId;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.description = description;
+  }
 }
 
 
@@ -10048,4 +10076,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle4181c54019ed53d94ad6.js.map
+//# sourceMappingURL=bundle106620519579b36345d2.js.map

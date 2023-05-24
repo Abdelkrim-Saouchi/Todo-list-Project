@@ -1,5 +1,6 @@
 import { parse, parseISO, isSameDay, format, getISOWeek } from 'date-fns';
-import addProjectToProjectsList, {
+import {
+  addProjectToProjectsList,
   addTaskToInbox,
   addTodoTask,
   deleteProjectFromProjectsList,
