@@ -1,4 +1,13 @@
-import displayController from './dom/displayController';
+import {
+  globalEventsHandler,
+  renderProjects,
+  renderTasks,
+} from './dom/displayController';
 import './style.css';
 
-displayController();
+// render page
+renderProjects();
+renderTasks();
+
+// events listeners
+document.addEventListener('click', globalEventsHandler);
