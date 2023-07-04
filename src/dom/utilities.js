@@ -7,7 +7,7 @@ import {
   getInbox,
   getProjectList,
   setTodoTask,
-  updateLocalStorage,
+  updateFirestore,
 } from '../logic/logicController';
 
 // get section title
@@ -115,7 +115,8 @@ export const addTask = () => {
   ) {
     const inbox = getInbox();
     addTaskToInbox(inbox, taskTitle, taskDate, taskPriority, taskDesc);
-    updateLocalStorage('inbox', inbox);
+    // updateLocalStorage('inbox', inbox);
+    updateFirestore('inbox', inbox);
     return;
   }
   projectsList.forEach((project) => {
@@ -123,7 +124,8 @@ export const addTask = () => {
       addTodoTask(project, taskTitle, taskDate, taskPriority, taskDesc);
     }
   });
-  updateLocalStorage('projects-list', projectsList);
+  // updateLocalStorage('projects-list', projectsList);
+  updateFirestore('projects', projectsList);
 };
 
 export const deleteTask = (target) => {
@@ -139,7 +141,8 @@ export const deleteTask = (target) => {
         inbox.splice(inbox.indexOf(todoTask), 1);
       }
     });
-    updateLocalStorage('inbox', inbox);
+    // updateLocalStorage('inbox', inbox);
+    updateFirestore('inbox', inbox);
     return;
   }
 
@@ -152,7 +155,8 @@ export const deleteTask = (target) => {
       });
     }
   });
-  updateLocalStorage('projects-list', projects);
+  // updateLocalStorage('projects-list', projects);
+  updateFirestore('projects', projects);
 };
 
 export const getTaskData = (listType, taskId) => {
@@ -235,7 +239,8 @@ export const updateTask = (target) => {
         task.setTodoTask(taskTitle, taskDueDate, taskPriority, taskDesc);
       }
     });
-    updateLocalStorage('inbox', inbox);
+    // updateLocalStorage('inbox', inbox);
+    updateFirestore('inbox', inbox);
     return;
   }
   projects.forEach((project) => {
@@ -247,7 +252,8 @@ export const updateTask = (target) => {
       }
     });
   });
-  updateLocalStorage('projects-list', projects);
+  // updateLocalStorage('projects-list', projects);
+  updateFirestore('projects', projects);
 };
 
 export const getAllTasks = () => {

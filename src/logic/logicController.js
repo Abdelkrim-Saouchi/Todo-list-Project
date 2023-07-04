@@ -1,18 +1,62 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { addDoc, collection, getDocs, writeBatch } from 'firebase/firestore';
 import TodosFactory from './todosFactory';
 import ProjectFactory from './projectFactory';
+import { db } from '../firebase-config';
 
-// get Data from localStorage
-const getDataFromLocalStorage = (key) => {
-  const data = JSON.parse(localStorage.getItem(key));
-  return data || [];
+const projectsList = [];
+const inbox = [];
+
+// get data from firestore
+export const getDataFromFireStore = async (path, array) => {
+  try {
+    const q = await getDocs(collection(db, path));
+    q.forEach((document) => {
+      array.push({ ...document.data(), id: document.id });
+    });
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-const projectsList = getDataFromLocalStorage('projects-list');
-const inbox = getDataFromLocalStorage('inbox');
+export const loadData = async () => {
+  await getDataFromFireStore('projects', projectsList);
+  await getDataFromFireStore('inbox', inbox);
+};
 
-// LocalStorage functions
-export const updateLocalStorage = (key, value) => {
-  localStorage.setItem(key, JSON.stringify(value));
+// update data in firstore
+export const updateFirestore = async (collect, valuesList) => {
+  // delete existing documents in firestore
+  const q = await getDocs(collection(db, collect));
+  const batch = writeBatch(db);
+  q.forEach((doc) => {
+    batch.delete(doc.ref);
+  });
+  await batch.commit();
+  // add new documents to firstore
+  valuesList.forEach(async (value) => {
+    if (collect === 'projects') {
+      await addDoc(collection(db, collect), {
+        title: value.title,
+        projectId: value.projectId,
+        tasks: value.tasks.map((task) => ({
+          title: task.title,
+          todoId: task.todoId,
+          dueDate: task.dueDate,
+          priority: task.priority,
+          description: task.description,
+        })),
+      });
+    } else {
+      await addDoc(collection(db, collect), {
+        title: value.title,
+        todoId: value.todoId,
+        dueDate: value.dueDate,
+        priority: value.priority,
+        description: value.description,
+      });
+    }
+  });
 };
 
 // tasks functions
@@ -53,16 +97,18 @@ export const getProjectList = () => projectsList;
 export const addProjectToProjectsList = (title) => {
   const project = new ProjectFactory(title, Date.now().toString());
   projectsList.push(project);
-  updateLocalStorage('projects-list', projectsList);
+  // updateLocalStorage('projects-list', projectsList);
+  updateFirestore('projects', projectsList);
 };
 
 export const deleteProjectFromProjectsList = (projectId) => {
   projectsList.forEach((project) => {
-    if (project.id === projectId) {
+    if (project.projectId === projectId) {
       projectsList.splice(projectsList.indexOf(project), 1);
     }
   });
-  updateLocalStorage('projects-list', projectsList);
+  // updateLocalStorage('projects-list', projectsList);
+  updateFirestore('projects', projectsList);
 };
 
 export const addTodoTask = (project, title, dueDate, priority, description) => {

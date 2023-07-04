@@ -30,7 +30,7 @@ export const renderProjects = () => {
 
   const projects = getProjectList();
   projects.forEach((project) => {
-    createProjectInDom(project.title, project.id);
+    createProjectInDom(project.title, project.projectId);
   });
 };
 

@@ -3,11 +3,15 @@ import {
   renderProjects,
   renderTasks,
 } from './dom/displayController';
+import { loadData } from './logic/logicController';
+
 import './style.css';
 
-// render page
-renderProjects();
-renderTasks();
+loadData().then(() => {
+  // render page
+  renderProjects();
+  renderTasks();
 
-// events listeners
-document.addEventListener('click', globalEventsHandler);
+  // events listeners
+  document.addEventListener('click', globalEventsHandler);
+});
